@@ -1,4 +1,3 @@
-require('dotenv').config();
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -27,6 +26,7 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     '@nuxtjs/dotenv',
+    '@nuxtjs/vuetify',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

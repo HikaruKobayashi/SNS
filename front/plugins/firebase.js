@@ -9,6 +9,10 @@ const fbConfig = {
     storageBucket: process.env.STORAGE_BUCKET,
     messagingSenderId: process.env.MESSAGE_SENDER_ID,
 };
-firebase.initializeApp(fbConfig)
+
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(fbConfig);
+}
 
 export default firebase
+export const auth = firebase.auth();
