@@ -23,7 +23,9 @@
     </v-col>
   </v-row>
 </template>
+
 <script>
+import axios from "@/plugins/axios"
 import firebase from "@/plugins/firebase";
 export default {
   data() {
@@ -42,24 +44,17 @@ export default {
       }
       firebase
         .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(res => {
-          console.log(res.user);
-        })
-        .catch(error => {
-          this.error = (code => {
-            switch (code) {
-              case "auth/email-already-in-use":
-                return "既にそのメールアドレスは使われています";
-              case "auth/wrong-password":
-                return "※パスワードが正しくありません";
-              case "auth/weak-password":
-                return "※パスワードは最低6文字以上にしてください";
-              default:
-                return "※メールアドレスとパスワードをご確認ください";
-            }
-          })(error.code);
-        });
+          .createUserWithEmailAndPassword(this.email, this.password)
+            .then(res => {
+                const user = {
+                  email: res.user.email,
+                  name: this.name,
+                  uid: res.user.uid
+                };
+                axios.post("/v1/users",{ user }).then(() => {
+                  this.$router.push("/");
+                });
+            })
     }
   }
 };
