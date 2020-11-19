@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   namespace :v1 do
     resources :tweets, only: [:create, :destroy]
-    resources :users, only: [:index, :show, :create]
-  end
-
-  resources :users do
-    member do
-      get :following, :followers
+    resources :users, only: [:index, :show, :create] do
+      member do
+        post '/follow', to: 'relationships#create'
+        delete '/unfollow', to: 'relationships#destroy'
+      end
     end
   end
-  resources :relationships, only: [:create, :destroy]
 end

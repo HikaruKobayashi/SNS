@@ -1,8 +1,9 @@
 class V1::UsersController < ApplicationController
   def index
     if params[:uid]
-      current_user = User.find_by(uid: params[:uid])
-      render json: current_user
+      @user = User.find_by(uid: params[:uid])
+      following = @user.following
+      render json: @user
     else
       users = User.all
       render json: users
@@ -10,8 +11,10 @@ class V1::UsersController < ApplicationController
   end
 
   def show
-    user = User.find(params[:id])
-    render json: user
+    @user = User.find(params[:id])
+    if @user
+      render json: @user
+    end
   end
 
   def create
@@ -26,6 +29,6 @@ class V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :uid, :name)
+    params.require(:user).permit(:name, :email, :uid,)
   end
 end

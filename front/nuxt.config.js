@@ -36,6 +36,8 @@ export default {
     '@nuxtjs/axios',
   ],
 
+  axios: {},
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     vendor: [
