@@ -3,7 +3,8 @@ class V1::UsersController < ApplicationController
     if params[:uid]
       @user = User.find_by(uid: params[:uid])
       following = @user.following
-      render json: @user and return
+      render json: { user: @user, following: following }
+      return
     else
       users = User.all
       render json: users and return

@@ -6,7 +6,7 @@ export const setUserParameter = (user, store) => {
     if (user) {
       const { data } = await axios.get(`/v1/users?uid=${user.uid}`)
       const userParams = data
-      console.log("ログインしているユーザー:", data)
+      console.log("ログインしているユーザー:", data.user.name)
       const following = data.following
       store.commit('setUser', userParams)
       store.commit('setLoggedIn',true)
