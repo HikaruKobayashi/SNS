@@ -1,10 +1,10 @@
 <template>
   <div>
     <div v-if="user">
-      <p>Email: {{user.email}}</p>
       <p>ユーザー名: {{user.name}}</p>
+      <p>Email: {{user.email}}</p>
+      <v-btn @click="logOut">ログアウト</v-btn>
     </div>
-    <v-btn @click="logOut">ログアウト</v-btn>
   </div>
 </template>
 
