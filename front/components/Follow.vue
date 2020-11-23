@@ -5,14 +5,18 @@
       type="button"
     />
     <v-btn
+      small
+      class="ma-2"
       outlined
       @click="follow"
       v-if="!followed && !loading && !iconOnly"
       :disabled="disabled"
     >
-      <span>フォロー</span>
+      <span style="margin-bottom: 2px">フォロー</span>
     </v-btn>
     <v-btn
+      small
+      class="ma-2 mobile-none"
       outlined
       @click="follow"
       v-if="!followed && !loading && iconOnly"
@@ -20,6 +24,8 @@
     >
     </v-btn>
     <v-btn
+      x-small
+      class="ma-2 mobile-only"
       outlined
       @click="follow"
       v-if="!followed && !loading && iconOnly"
@@ -27,19 +33,26 @@
     >
     </v-btn>
     <v-btn
+      small
+      class="ma-2"
       @click="unfollow"
       :disabled="disabled"
       v-if="followed && !loading && !iconOnly"
     >
-      <span>フォロー解除</span>
+      <span style="margin-bottom: 2px">フォロー解除</span>
     </v-btn>
     <v-btn
+      small
+      class="ma-2 mobile-none"
       @click="unfollow"
       :disabled="disabled"
       v-if="followed && !loading && iconOnly"
     >
     </v-btn>
     <v-btn
+      x-small
+      class="ma-2 mobile-only"
+      color="primary"
       @click="unfollow"
       :disabled="disabled"
       v-if="followed && !loading && iconOnly"
