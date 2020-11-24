@@ -17,7 +17,7 @@
           <h3>{{ followerCount }}</h3>
         </v-row>
       </v-col>
-      <v-col v-if="currentUser && Number(paramsUserId) !== currentUser.id">
+      <v-col v-if="currentUser && Number(paramsUserId) !== currentUser.user.id">
         <FollowButton
           :userId="Number(paramsUserId)"
           @addFollower="$emit('addFollower')"
