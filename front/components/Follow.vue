@@ -92,7 +92,7 @@ export default {
       this.disabled = true
       axios
         .post(`/v1/users/${this.userId}/follow`, {
-          current_user_id: this.currentUser.id
+          current_user_id: this.currentUser.user.id
         })
         .then((res) => {
           this.$store.commit('addFollowing', res.data)
@@ -108,8 +108,7 @@ export default {
       this.disabled = true
       axios
         .delete(`/v1/users/${this.userId}/unfollow`, {
-          params:
-            { current_user_id: this.currentUser.id }
+          current_user_id: this.currentUser.user.id
         })
         .then((res) => {
           this.$store.commit('removeFollowing', res.data)

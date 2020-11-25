@@ -14,7 +14,7 @@ class V1::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if @user
-      render json: @user
+      render json: @user.to_json(methods: [:follower_count, :following_count])
     end
   end
 

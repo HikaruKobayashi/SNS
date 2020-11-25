@@ -41,8 +41,6 @@ export default {
     axios
       .get(`/v1/users/${this.$route.params.id}`)
       .then((response) => {
-        // const data = JSON.parse(response.data.user)
-        // this.user = user
         this.user = response.data
       })
       .catch((error) => {

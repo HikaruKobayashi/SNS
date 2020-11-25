@@ -14,10 +14,10 @@ class User < ApplicationRecord
   end
 
   def following_count
-    self.active_relationships.length
+    self.following_relationships.length
   end
 
   def follower_count
-    self.passive_relationships.length
+    self.follower_relationships.length
   end
 end
