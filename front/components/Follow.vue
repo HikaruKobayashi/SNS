@@ -108,7 +108,7 @@ export default {
       this.disabled = true
       axios
         .delete(`/v1/users/${this.userId}/unfollow`, {
-          current_user_id: this.currentUser.user.id
+          params: { current_user_id: this.currentUser.user.id }
         })
         .then((res) => {
           this.$store.commit('removeFollowing', res.data)

@@ -9,7 +9,7 @@ class V1::RelationshipsController < ApplicationController
   def destroy
     current_user = User.find(params[:current_user_id])
     @user = User.find(params[:id])
-    current_user.destroy(@user)
+    current_user.unfollow(@user)
     render json: @user.id
   end
 end
