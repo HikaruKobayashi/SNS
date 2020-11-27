@@ -2,7 +2,7 @@ class V1::RelationshipsController < ApplicationController
   def create
     current_user = User.find(params[:current_user_id])
     @user = User.find(params[:id])
-    current_user.save(@user)
+    current_user.follow(@user)
     render json: @user.id    
   end
 
