@@ -1,3 +1,4 @@
+require('dotenv').config();
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -18,6 +19,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    "@/plugins/firebase",
+    "@/plugins/auth-check"
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

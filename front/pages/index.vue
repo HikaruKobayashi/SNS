@@ -23,12 +23,37 @@
           GitHub
         </a>
       </div>
+      <div class="pa-5">
+        <v-btn
+          block
+          outlined
+          color="grey darken-3"
+          @click="signOut"
+        >
+          ログアウト
+        </v-btn>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    signOut: function(err) {
+      this.$store
+        .dispatch('signOut')
+        .then(() => {
+          this.$router.push({
+            name: 'login'
+          })
+        })
+        .catch((err) => {
+          alert(err.message)
+        })
+    }
+  }
+}
 </script>
 
 <style>
