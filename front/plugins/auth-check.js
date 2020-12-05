@@ -14,14 +14,13 @@ export const setUserParameter = (user, store) => {
     } else {
       store.commit('setUser', null)
       store.commit('setLoggedIn',false)
-      store.commit('setFollowing', null)
     }
   }
- setUser(user, store)
+  setUser(user, store)
 }
 
 const authCheck = ({ store, redirect }) => {
-  firebase.auth().onAuthStateChanged(async user => {
+  firebase.auth().onAuthStateChanged(async (user) => {
     await setUserParameter(user, store)
   })
 }

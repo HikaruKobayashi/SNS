@@ -27,7 +27,6 @@ export const mutations = {
     })
   },
   addFollowing (state, payload) {
-    console.log(state.currentUser);
     state.currentUser.following.unshift(payload)
   },
   removeFollowing (state, payload) {
