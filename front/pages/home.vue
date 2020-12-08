@@ -1,18 +1,20 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <v-card>
-          <v-card-title>Tweet</v-card-title>
-          <v-card-text>
-            <v-form>
-              <Tweet />
-            </v-form>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-app id="app">
+    <v-container>
+      <v-row>
+        <v-col>
+          <div>
+            <v-btn @click.stop="dialog = true">tweet</v-btn>
+            <v-dialog v-model="dialog" max-width="60%">
+              <v-card>
+                <Tweet />
+              </v-card>
+            </v-dialog>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
@@ -21,7 +23,10 @@ export default {
   components: {
     Tweet,
   },
+  data() {
+    return {
+      dialog: false,
+    }
+  },
 }
 </script>
-<style>
-</style>
