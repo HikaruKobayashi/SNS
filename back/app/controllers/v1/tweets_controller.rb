@@ -5,11 +5,13 @@ class V1::TweetsController < ApplicationController
   end
 
   def create
-    tweet = Tweet.new(tweet_params)
-    if tweet.save
-      render json: tweet, status: :created
+    current_user = User.find(params[:current_user_id])
+    @tweet = current_user.tweets.build(tweet_params)
+
+    if @tweet.save
+      render json: @tweet, status: :created
     else
-      render json: tweet.errors, status: :unprocessable_entity
+      render json: @tweet.errors, status: :unprocessable_entity
     end
   end
 
