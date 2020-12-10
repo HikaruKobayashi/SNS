@@ -4,6 +4,13 @@ class V1::TweetsController < ApplicationController
     render json: tweet
   end
 
+  def show
+    @tweet = User.find(params[:id])
+    if @tweet
+      render json: @tweet
+    end
+  end
+
   def create
     current_user = User.find(params[:current_user_id])
     @tweet = current_user.tweets.build(tweet_params)

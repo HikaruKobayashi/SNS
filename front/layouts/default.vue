@@ -3,6 +3,7 @@
     <header>
       <v-app-bar app>
         <h2>SNS</h2>
+        <v-spacer></v-spacer>
         <Tweet />
       </v-app-bar>
     </header>
