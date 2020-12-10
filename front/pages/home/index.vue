@@ -3,7 +3,6 @@
     <div v-for="post in posts" v-bind:key="post.id">
       <v-card>
         <v-container class="mb-10">
-          <p>{{user}}</p>
           <v-divider></v-divider>
           <p>{{post}}</p>
         </v-container>
@@ -17,21 +16,20 @@ import axios from '@/plugins/axios'
 export default {
   data () {
     return {
-      user: "",
       tweets: {},    
       posts: {},
     }
   },
   mounted () {
     axios
-      .get(`/v1/tweets/${this.$route.params.id}`)
+      .get('/v1/tweets/')
       .then((res) => {
-        this.user = res.data.name
+        console.log(res.data[0].user.name)
         this.tweets = res.data
         const post = new Array();
-        for( let i = 0; i < this.tweets.tweets.length; i++ ) {
-          this.tweets.tweets[i].content
-          post.unshift(this.tweets.tweets[i].content)
+        for( let i = 0; i < this.tweets.length; i++ ) {
+          this.tweets[i].content
+          post.unshift(this.tweets[i].content)
         }
         this.posts = post
       })
