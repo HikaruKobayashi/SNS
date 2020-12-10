@@ -9,17 +9,24 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [
+      {
+        src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
+      }
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    'aos/dist/aos.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     "@/plugins/firebase",
-    "@/plugins/auth-check"
+    "@/plugins/auth-check",
+    { src: '~/plugins/aos', ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -42,6 +49,7 @@ export default {
   build: {
     vendor: [
       'vuex',
+      'aos'
     ]
   }
 }

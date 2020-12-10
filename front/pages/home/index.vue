@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div v-for="post in posts" v-bind:key="post.id">
-      <v-card>
+      <v-card data-aos='fade-up'>
         <v-container class="mb-10">
           <v-divider></v-divider>
           <p>{{post}}</p>
