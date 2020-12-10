@@ -7,14 +7,25 @@
           <v-row>
             <v-col>
               <v-icon @click="dialog = false">mdi-close</v-icon>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col align="center">
               <v-divider></v-divider>
               <v-textarea
+                class="col-10 mt-8"
+                solo
                 v-model="content"
                 placeholder="What's happening?"
                 required
               />
               <v-divider></v-divider>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col align="right">
               <v-btn
+                class="mr-3"
                 @click="createTweet"
               >
               tweet
