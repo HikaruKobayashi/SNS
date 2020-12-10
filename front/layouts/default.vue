@@ -12,12 +12,11 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-bottom-navigation v-show="$vuetify.breakpoint.xs">
+    <v-bottom-navigation v-show="$vuetify.breakpoint.xs" app>
       <v-btn v-for="menu in menus" :key="menu.title" :to="menu.url">
         <v-icon>{{ menu.icon }}</v-icon>
       </v-btn>
     </v-bottom-navigation>
-
   </v-app>
 </template>
 
