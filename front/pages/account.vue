@@ -1,11 +1,14 @@
 <template>
-  <div>
-    <div v-if="user">
-      <p>ユーザー名: {{user.name}}</p>
-      <p>Email: {{user.email}}</p>
-      <v-btn @click="logOut">ログアウト</v-btn>
+  <v-container>
+    <div>
+      <h2>Account Information</h2>
+      <div v-if="user">
+        <p>ユーザー名: {{user.name}}</p>
+        <p>Email: {{user.email}}</p>
+        <v-btn @click="logOut">ログアウト</v-btn>
+      </div>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>

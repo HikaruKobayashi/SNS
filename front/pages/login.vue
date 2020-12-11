@@ -32,6 +32,13 @@ export default {
       error: ""
     };
   },
+  fetch ({redirect, store}) {
+    if (store.state.loggedIn = true) {
+      return redirect("/")
+    } else {
+      console.log("ログインしていません。");
+    }
+  },
   methods: {
     login() {
       firebase
