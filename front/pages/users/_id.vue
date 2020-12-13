@@ -1,18 +1,29 @@
 <template>
-<div>
-  <ErrorCard
-    :display="userNotFound"
-    title="404 not find"
-    message="ユーザーが存在しません。"
-  />
-  <v-container v-if="!userNotFound">
-    <v-row>
-      <v-col>
-        <User :user="user" />
-      </v-col>
-    </v-row>
-  </v-container>
-</div>
+  <div>
+    <ErrorCard
+      :display="userNotFound"
+      title="404 not find"
+      message="ユーザーが存在しません。"
+    />
+    <v-container v-if="!userNotFound">
+      <v-row>
+        <v-col>
+          <User :user="user" />
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container>
+      <div v-for="post in posts" v-bind:key="post.id">
+        <v-card>
+          <v-container class="mb-10">
+            <p>{{user.name}}</p>
+            <v-divider></v-divider>
+            <p>{{post}}</p>
+          </v-container>
+        </v-card>
+      </div>
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -26,6 +37,8 @@ export default {
   data () {
     return {
       user: {},
+      tweets: {},    
+      posts: {},
       userNotFound: false,
     }
   },
@@ -48,6 +61,17 @@ export default {
           this.userNotFound = true
         }
         console.log(error)
+      })
+    axios
+      .get(`/v1/tweets/${this.$route.params.id}`)
+      .then((res) => {
+        this.tweets = res.data
+        const post = new Array();
+        for( let i = 0; i < this.tweets.tweets.length; i++ ) {
+          this.tweets.tweets[i].content
+          post.unshift(this.tweets.tweets[i].content)
+        }
+        this.posts = post
       })
   },
 }
