@@ -2,7 +2,7 @@
   <div>
     <ErrorCard
       :display="userNotFound"
-      title="404 not find"
+      title="404"
       message="ユーザーが存在しません。"
     />
     <v-container v-if="!userNotFound">

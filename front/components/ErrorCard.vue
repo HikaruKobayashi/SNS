@@ -1,8 +1,6 @@
 <template>
   <v-card
-  v-if="display"
-  class="mx-auto mt-5 pa-5"
-  width="600px"
+    v-if="display"
   >
     <v-card-title>
       <h1>{{ title }}</h1>
