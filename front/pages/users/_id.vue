@@ -32,7 +32,8 @@ import User      from '~/components/User.vue'
 import ErrorCard from '~/components/ErrorCard.vue'
 export default {
   components: {
-    User
+    User,
+    ErrorCard
   },
   data () {
     return {
