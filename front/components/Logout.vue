@@ -1,6 +1,7 @@
 <template>
   <div v-if="currentUser && Number(paramsUserId) == currentUser.user.id">
     <v-btn
+      small
       @click="logOut"
       :disabled="disabled"
     >
