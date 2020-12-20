@@ -14,7 +14,7 @@
     </v-container>
     <v-container>
       <div v-for="post in posts" v-bind:key="post.id">
-        <v-card>
+        <v-card data-aos='fade-up'>
           <v-container class="mb-10">
             <p>{{user.name}}</p>
             <v-divider></v-divider>
