@@ -1,13 +1,13 @@
 <template>
-  <div v-if="currentUser && Number(paramsUserId) == currentUser.user.id">
-    <v-btn
-      small
-      @click="logOut"
-      :disabled="disabled"
-    >
-      <span>ログアウト</span>
-    </v-btn>
-  </div>
+  <v-btn
+    v-if="currentUser && Number(paramsUserId) == currentUser.user.id"
+    small
+    class="ma-2"
+    @click="logOut"
+    :disabled="disabled"
+  >
+    <span>ログアウト</span>
+  </v-btn>
 </template>
 
 <script>

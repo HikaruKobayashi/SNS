@@ -9,18 +9,18 @@
         @addFollower="user.follower_count++"
         @subFollower="user.follower_count--"
       />
-      <Logout/>
+      <Edit />
     </v-card-text>
   </v-card>
 </template>
 
 <script>
 import Relationship from './Relationship.vue'
-import Logout from '~/components/Logout.vue'
+import Edit      from '~/components/Edit.vue'
 export default {
   components: {
     Relationship,
-    Logout
+    Edit,
   },
   props: {
     user: {
