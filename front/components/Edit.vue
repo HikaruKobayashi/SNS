@@ -10,7 +10,7 @@
     </v-btn>
     <v-dialog v-model="dialog" max-width="80%">
       <v-card>
-        <v-card-title>Edit</v-card-title>
+        <v-card-title>Edit Profile</v-card-title>
         <v-card-text>
           <v-form>
             <v-text-field
@@ -25,12 +25,12 @@
             />
             <v-text-field
               v-model="password"
-              label='Password'
+              label='New Password'
               required
             />
             <v-text-field
               v-model="passwordConfirm"
-              label='Password Confirm'
+              label='New Password Confirm'
               required
             />
             <v-row>

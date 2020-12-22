@@ -18,6 +18,12 @@ class V1::UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+    puts @user
+    render json: @user
+  end
+
   def create
     user = User.new(user_params)
     if user.save
