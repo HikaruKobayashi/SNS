@@ -26,6 +26,7 @@ export default {
   plugins: [
     "@/plugins/firebase",
     "@/plugins/auth-check",
+    "@/plugins/vee-validate",
     { src: '~/plugins/aos', ssr: false },
   ],
 
@@ -47,9 +48,12 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    transpile: [
+      'vee-validate'
+    ],
     vendor: [
       'vuex',
-      'aos'
+      'aos',
     ]
   }
 }
