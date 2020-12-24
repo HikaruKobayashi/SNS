@@ -4,7 +4,13 @@
       <v-col>
         <h2>Login</h2>
         <form>
-          <v-text-field v-model="email" :counter="20" label="email" data-vv-name="email" required></v-text-field>
+          <v-text-field
+            v-model="email"
+            :counter="20"
+            label="email"
+            data-vv-name="email"
+            required
+          />
           <v-text-field
             v-model="password"
             label="password"
@@ -13,7 +19,7 @@
             :type="show1 ? 'text' : 'password'"
             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
             @click:append="show1 = !show1"
-          ></v-text-field>
+          />
           <v-btn @click="login">submit</v-btn>
           <p v-if="error" class="errors">{{error}}</p>
         </form>
