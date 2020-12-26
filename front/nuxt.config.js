@@ -28,6 +28,7 @@ export default {
     "@/plugins/auth-check",
     "@/plugins/vee-validate",
     { src: '~/plugins/aos', ssr: false },
+    { src: '~/plugins/actioncable', ssr: false },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
