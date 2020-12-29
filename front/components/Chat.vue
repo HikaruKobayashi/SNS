@@ -10,10 +10,29 @@
 </template>
 
 <script>
+import ActionCable from 'actioncable';
 export default {
   data() {
     return {
       dialog: false,
+      message: "",
+    }
+  },
+  created() {
+    const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
+
+    this.messageChannel = cable.subscriptions.create("PostChannnel", {
+      received: (data) => {
+        this.$store.commit("addMessage", data);
+      },
+    })
+  },
+  methods: {
+    handleClick: function() {
+      this.messageChannel.perform('post', {
+        message: this.message,
+      });
+      this.message = ""
     }
   }
 }

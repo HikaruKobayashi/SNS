@@ -10,7 +10,6 @@
     <v-main>
       <v-container>
         <nuxt />
-        <Chat />
       </v-container>
     </v-main>
     <v-bottom-navigation v-show="$vuetify.breakpoint.xs" app>
@@ -24,11 +23,9 @@
 <script>
 import axios from '@/plugins/axios'
 import Tweet from '~/components/Tweet.vue'
-import Chat  from '~/components/Chat.vue' 
 export default {
   components: {
     Tweet,
-    Chat
   },
   data () {
     return {
