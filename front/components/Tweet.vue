@@ -14,14 +14,12 @@
           <v-row>
             <v-col align="center">
               <v-divider></v-divider>
-              <v-textarea
+              <v-text-field
                 class="col-10 mt-8"
-                solo
                 v-model="content"
                 placeholder="What's happening?"
                 required
               />
-              <v-divider></v-divider>
             </v-col>
           </v-row>
           <v-row>
