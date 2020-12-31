@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <header>
-      <v-app-bar app>
-        <h2>SNS</h2>
+      <v-app-bar color='#6FB7FF'>
+        <h2 class='app-title'>SNS</h2>
         <v-spacer></v-spacer>
         <Tweet v-show="$vuetify.breakpoint.xs" />
       </v-app-bar>
@@ -42,6 +42,10 @@ export default {
 </script>
 
 <style>
+.app-title {
+  color: #ffffff;
+}
+
 .tweet {
   position: fixed;
 	top: 50%;
