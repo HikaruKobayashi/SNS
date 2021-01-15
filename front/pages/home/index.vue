@@ -28,7 +28,7 @@ export default {
         const post = new Array();
         for( let i = 0; i < this.tweets.length; i++ ) {
           this.tweets[i].content
-          post.unshift(this.tweets[i].content)
+          post.push(this.tweets[i].content)
         }
         this.posts = post
       })
