@@ -1,6 +1,8 @@
 <template>
   <div>
-    <v-btn @click.stop="dialog = true">tweet</v-btn>
+    <div class="tweet-btn" @click.stop="dialog = true">
+      <fa class="tweet-icon" :icon="['fas', 'feather']" />
+    </div>
     <v-dialog v-model="dialog" max-width="80%">
       <v-form>
         <v-card>
@@ -68,3 +70,18 @@ export default {
   }
 }
 </script>
+
+<style>
+.tweet-btn {
+  width: 50px;
+  height: 50px;
+  line-height: 55px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+}
+.tweet-icon {
+  font-size: 25px;
+}
+</style>

@@ -4,7 +4,7 @@
       <v-app-bar app>
         <h2>SNS</h2>
         <v-spacer></v-spacer>
-        <Tweet v-show="$vuetify.breakpoint.sm" />
+        <Tweet v-show="$vuetify.breakpoint.xs" />
       </v-app-bar>
     </header>
     <v-main>

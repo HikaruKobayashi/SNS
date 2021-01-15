@@ -19,7 +19,8 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-    'aos/dist/aos.css'
+    'aos/dist/aos.css',
+    { src: '@fortawesome/fontawesome-svg-core/styles.css' },
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -27,6 +28,7 @@ export default {
     "@/plugins/firebase",
     "@/plugins/auth-check",
     "@/plugins/vee-validate",
+    "@/plugins/fontawesome",
     { src: '~/plugins/aos', ssr: false },
   ],
 
