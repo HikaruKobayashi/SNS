@@ -61,6 +61,8 @@ export default {
         })
         .then((res) => {
           this.$router.push('/home')
+          this.content = ''
+          this.dialog = false
         })
     }
   }
