@@ -4,10 +4,11 @@
       <v-app-bar app>
         <h2>SNS</h2>
         <v-spacer></v-spacer>
-        <Tweet />
+        <Tweet v-show="$vuetify.breakpoint.sm" />
       </v-app-bar>
     </header>
     <v-main>
+      <Tweet class='tweet' v-show="$vuetify.breakpoint.lg" />
       <v-container>
         <nuxt />
       </v-container>
@@ -39,3 +40,16 @@ export default {
   },
 }
 </script>
+
+<style>
+.tweet {
+  position: fixed;
+	top: 50%;
+	left: 5%;
+	transform: translate(-50%, -50%);
+}
+
+.v-main{
+  background: linear-gradient(-45deg, #87AFFE,#B7E0FE) fixed;
+}
+</style>
