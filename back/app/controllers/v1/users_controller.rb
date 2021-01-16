@@ -13,6 +13,8 @@ class V1::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @image = @user.image
+    @profile = @user.profile
     if @user
       render json: @user.to_json(methods: [:follower_count, :following_count])
     end
@@ -20,6 +22,7 @@ class V1::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @image = @user.image
     puts @user
     render json: @user
   end
@@ -36,6 +39,6 @@ class V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :uid,)
+    params.require(:user).permit(:name, :email, :uid, :image, :profile)
   end
 end
