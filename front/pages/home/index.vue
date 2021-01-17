@@ -1,9 +1,11 @@
 <template>
   <v-container>
-    <div v-for="post in posts" v-bind:key="post.id">
+    <div v-for="user in users" v-bind:key="user.id">
       <v-card data-aos='fade-up'>
         <v-container class="mb-10">
-          <p>{{post}}</p>
+          <p>{{user.username}}</p>
+          <v-divider></v-divider>
+          <p>{{user.content}}</p>
         </v-container>
       </v-card>
     </div>
@@ -15,22 +17,20 @@ import axios from '@/plugins/axios'
 export default {
   data () {
     return {
-      tweets: {},    
-      posts: {},
+      users : {},
     }
   },
   mounted () {
     axios
       .get('/v1/tweets/')
       .then((res) => {
-        console.log(res.data[0].user.name)
-        this.tweets = res.data
-        const post = new Array();
-        for( let i = 0; i < this.tweets.length; i++ ) {
-          this.tweets[i].content
-          post.push(this.tweets[i].content)
+        this.users = res.data
+        const user = new Array();
+        for( let i = 0; i < res.data.length; i++ ) {
+          this.users[i].content
+          user.push(this.users[i])
         }
-        this.posts = post
+        this.users = user
       })
   }
 }
