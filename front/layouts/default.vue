@@ -1,14 +1,14 @@
 <template>
   <v-app>
     <header>
-      <v-app-bar color='#6FB7FF'>
+      <v-app-bar>
         <h2 class='app-title'>SNS</h2>
         <v-spacer></v-spacer>
-        <Tweet v-show="$vuetify.breakpoint.xs" />
+        <!-- <Tweet v-show="$vuetify.breakpoint.xs" /> -->
       </v-app-bar>
     </header>
     <v-main>
-      <Tweet class='tweet' v-show="$vuetify.breakpoint.lg" />
+      <!-- <Tweet class='tweet' v-show="$vuetify.breakpoint.lg" /> -->
       <v-container>
         <nuxt />
       </v-container>
@@ -23,10 +23,10 @@
 
 <script>
 import axios from '@/plugins/axios'
-import Tweet from '~/components/Tweet.vue'
+// import Tweet from '~/components/Tweet.vue'
 export default {
   components: {
-    Tweet,
+    // Tweet,
   },
   data () {
     return {
@@ -42,18 +42,10 @@ export default {
 </script>
 
 <style>
-.app-title {
-  color: #ffffff;
-}
-
 .tweet {
   position: fixed;
 	top: 50%;
 	left: 5%;
 	transform: translate(-50%, -50%);
-}
-
-.v-main{
-  background: linear-gradient(-45deg, #87AFFE,#B7E0FE) fixed;
 }
 </style>

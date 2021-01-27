@@ -18,6 +18,9 @@ export const mutations = {
   setUser(state, payload) {
     state.currentUser = payload
   },
+  setUserAvatarUrl (state, payload) {
+    state.currentUser.avatar_url = payload
+  },
   setLoggedIn(state, payload) {
    state.loggedIn = payload
   },

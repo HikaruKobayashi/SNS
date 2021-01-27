@@ -81,5 +81,6 @@ export default {
 }
 .tweet-icon {
   font-size: 25px;
+  color: #007bff;
 }
 </style>
