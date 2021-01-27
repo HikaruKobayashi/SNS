@@ -6,57 +6,21 @@
     />
     <v-btn
       small
-      class="ma-2"
-      outlined
+      id="follow_btn"
       @click="follow"
       v-if="!followed && !loading && !iconOnly"
       :disabled="disabled"
     >
-      <span style="margin-bottom: 2px">フォロー</span>
+      <span style="margin-bottom: 2px">FOLLOW</span>
     </v-btn>
     <v-btn
       small
-      class="ma-2 mobile-none"
-      outlined
-      @click="follow"
-      v-if="!followed && !loading && iconOnly"
-      :disabled="disabled"
-    >
-    </v-btn>
-    <v-btn
-      x-small
-      class="ma-2 mobile-only"
-      outlined
-      @click="follow"
-      v-if="!followed && !loading && iconOnly"
-      :disabled="disabled"
-    >
-    </v-btn>
-    <v-btn
-      small
-      class="ma-2"
+      id="following_btn"
       @click="unfollow"
       :disabled="disabled"
       v-if="followed && !loading && !iconOnly"
     >
-      <span style="margin-bottom: 2px">フォロー解除</span>
-    </v-btn>
-    <v-btn
-      small
-      class="ma-2 mobile-none"
-      @click="unfollow"
-      :disabled="disabled"
-      v-if="followed && !loading && iconOnly"
-    >
-    </v-btn>
-    <v-btn
-      x-small
-      class="ma-2 mobile-only"
-      color="primary"
-      @click="unfollow"
-      :disabled="disabled"
-      v-if="followed && !loading && iconOnly"
-    >
+      <span style="margin-bottom: 2px">FOLLOWING</span>
     </v-btn>
   </div>
 </template>
@@ -137,3 +101,20 @@ export default {
   }
 }
 </script>
+
+<style>
+#follow_btn, #following_btn {
+  padding: 20px 50px !important;
+  border-radius: 50px !important;
+}
+#follow_btn {
+  background: linear-gradient(145deg, #ffffff, #e6e6e6) !important;
+  box-shadow:  8px 8px 12px #bababa,
+              -8px -8px 12px #ffffff !important;
+}
+#following_btn {
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  box-shadow:  8px 8px 12px #bababa,
+              -8px -8px 12px #ffffff;
+}
+</style>
