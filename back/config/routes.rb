@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       member do
         post '/follow', to: 'relationships#create'
         delete '/unfollow', to: 'relationships#destroy'
+        patch '/update_image', to: 'users#update_image'
       end
     end
   end
