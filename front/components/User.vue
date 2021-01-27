@@ -1,4 +1,4 @@
-<template>
+<template id="user">
   <v-card>
     <div>
       <!-- <Avatar /> -->
@@ -35,3 +35,9 @@ export default {
   }
 }
 </script>
+
+<style>
+#user {
+  background-color: #e0e0e0 !important;
+}
+</style>
