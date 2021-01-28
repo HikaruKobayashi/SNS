@@ -5,6 +5,7 @@
         <h2 class='app-title'>SNS</h2>
         <v-spacer></v-spacer>
         <!-- <Tweet v-show="$vuetify.breakpoint.xs" /> -->
+        <Post />
       </v-app-bar>
     </header>
     <v-main>
@@ -24,9 +25,11 @@
 <script>
 import axios from '@/plugins/axios'
 // import Tweet from '~/components/Tweet.vue'
+import Post from '~/components/Post.vue'
 export default {
   components: {
     // Tweet,
+    Post
   },
   data () {
     return {
