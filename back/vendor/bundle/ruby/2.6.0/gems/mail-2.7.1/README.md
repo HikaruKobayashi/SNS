@@ -227,7 +227,7 @@ easy as:
 Mail.deliver do
   from     'me@test.lindsaar.net'
   to       'you@test.lindsaar.net'
-  subject  'Here is the image you wanted'
+  subject  'Here is the  you wanted'
   body     File.read('body.txt')
   add_file '/full/path/to/somefile.png'
 end
@@ -239,7 +239,7 @@ or
 mail = Mail.new do
   from     'me@test.lindsaar.net'
   to       'you@test.lindsaar.net'
-  subject  'Here is the image you wanted'
+  subject  'Here is the  you wanted'
   body     File.read('body.txt')
   add_file :filename => 'somefile.png', :content => File.read('/somefile.png')
 end
@@ -253,7 +253,7 @@ Sending via sendmail can be done like so:
 mail = Mail.new do
   from     'me@test.lindsaar.net'
   to       'you@test.lindsaar.net'
-  subject  'Here is the image you wanted'
+  subject  'Here is the  you wanted'
   body     File.read('body.txt')
   add_file :filename => 'somefile.png', :content => File.read('/somefile.png')
 end
@@ -374,11 +374,11 @@ content type and has a boundary defined.
 mail.attachments.each do | attachment |
   # Attachments is an AttachmentsList object containing a
   # number of Part objects
-  if (attachment.content_type.start_with?('image/'))
-    # extracting images for example...
+  if (attachment.content_type.start_with?('/'))
+    # extracting s for example...
     filename = attachment.filename
     begin
-      File.open(images_dir + filename, "w+b", 0644) {|f| f.write attachment.decoded}
+      File.open(s_dir + filename, "w+b", 0644) {|f| f.write attachment.decoded}
     rescue => e
       puts "Unable to save data for #{filename} because #{e.message}"
     end
@@ -502,7 +502,7 @@ to guess the mime_type and will encode the file in Base64 for you.
 @mail.add_file("/path/to/file.jpg")
 @mail.parts.first.attachment? #=> true
 @mail.parts.first.content_transfer_encoding.to_s #=> 'base64'
-@mail.attachments.first.mime_type #=> 'image/jpg'
+@mail.attachments.first.mime_type #=> '/jpg'
 @mail.attachments.first.filename #=> 'file.jpg'
 @mail.attachments.first.decoded == File.read('/path/to/file.jpg') #=> true
 ```
