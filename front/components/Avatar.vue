@@ -80,7 +80,7 @@ export default {
           method: 'PATCH'
         }).then(res => {
           this.image = res.data.avatar_url
-          this.$store.commit('setUserAvatarUrl', res.data.image)
+          this.$store.commit('setUserAvatarUrl', res.data.avatar_url)
           resolve(res)
         }).catch(e => {
           console.log(e)
