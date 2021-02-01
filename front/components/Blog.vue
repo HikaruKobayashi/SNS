@@ -2,13 +2,12 @@
   <v-form>
     <v-card>
       <v-row>
-        <v-col>
-          <v-icon @click="dialog = false">mdi-close</v-icon>
-        </v-col>
-      </v-row>
-      <v-row>
         <v-col align="center">
-          <v-divider></v-divider>
+          <v-file-input
+            class="col-10 mt-8"
+            accept="image/png, image/jpeg, image/bmp, image/gif, image/heic"
+            required
+          />
           <v-text-field
             class="col-10 mt-8"
             required
