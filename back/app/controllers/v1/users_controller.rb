@@ -37,13 +37,13 @@ class V1::UsersController < ApplicationController
 
   def update_image
     @user = User.find(params[:id])
-    @user.avatar.attach(params[:image])
-    render json: { user: @user.to_json(methods: :image_url) }
+    @user.avatar = (params[:image])
+    render json: { user: @user.to_json(methods: :avatar_url) }
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :uid, :image, :profile)
+    params.require(:user).permit(:name, :email, :uid, :profile, :image)
   end
 end
