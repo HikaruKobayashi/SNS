@@ -20,16 +20,21 @@
         </li>
       </ul>
     </v-container>
+    <v-container>
+      <BlogPost />
+    </v-container>
   </div>
 </template>
 
 <script>
 import axios     from '@/plugins/axios'
 import User      from '~/components/User.vue'
+import BlogPost      from '~/components/BlogPost.vue'
 import ErrorCard from '~/components/ErrorCard.vue'
 export default {
   components: {
     User,
+    BlogPost,
     ErrorCard
   },
   data () {
