@@ -1,8 +1,7 @@
 <template>
   <div id="blog_post">
     <ul>
-      <li v-for="blog in blogs" v-bind:key="blog.id">
-        <!-- <h2>{{}}</h2> -->
+      <li v-for="blog in blogs" v-bind:key="blog.id" data-aos="fade-up">
         <img
           :src="blog.image"
         />
@@ -63,6 +62,12 @@ export default {
   border-radius: 10px;
   margin-bottom: 30px;
   overflow: hidden;
+  cursor: pointer;
+}
+#blog_post > ul > li:hover {
+  border: 1px solid rgb(253, 253, 253);
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  transform: translateY(3px);
 }
 #blog_post > ul > li > img {
   width: 100%;

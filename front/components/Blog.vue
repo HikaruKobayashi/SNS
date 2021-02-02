@@ -3,11 +3,11 @@
     <v-card>
       <v-row>
         <v-col align="center">
-          <v-file-input
-            class="col-10 mt-8"
-            @change="onFileChange"
-            accept="image/png, image/jpeg, image/bmp, image/gif, image/heic"
-            required
+          <croppa
+            v-model="myCroppa"
+            :width="400"
+            :height="200"
+            :accept="'image/*'"
           />
           <v-text-field
             class="col-10 mt-8"
@@ -32,12 +32,13 @@
 
 <script>
 import axios from '@/plugins/axios'
+import croppa from '@/plugins/croppa'
 export default {
   data() {
     return {
       dialog: false,
       blog: {},
-      uploadedImage: ''
+      myCroppa: {},
     }
   },
   computed: {
@@ -46,26 +47,15 @@ export default {
     }
   },
   methods: {
-    onFileChange() {
-      let file = event.target.files[0] || event.dataTransfer.files
-      let reader = new FileReader()
-      reader.onload = () => {
-        this.uploadedImage = event.target.result
-        this.blog.image = this.uploadedImage
-      }
-      reader.readAsDataURL(file)
-    },
     createBlogPost() {
+      this.blog.image = this.myCroppa.generateDataUrl()
       axios
         .post('/v1/blogs', {
-          blog: this.blog,
+          blog: (this.blog),
           current_user_id: this.currentUser.user.id
         })
         .then((res) => {
-          // this.$router.push(`/users/${this.$route.params.id}`)
           this.blog = {}
-          this.uploadedImage = ''
-          // this.dialog = false
         })
     }
   }
