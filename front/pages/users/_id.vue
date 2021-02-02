@@ -82,7 +82,7 @@ export default {
 
 <style>
 .v-main {
-  background: #262626;
+  background-color: rgb(243, 243, 243);
 }
 #user_id > div > ul {
   overflow-x: auto;

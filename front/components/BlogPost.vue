@@ -2,10 +2,11 @@
   <div id="blog_post">
     <ul>
       <li v-for="blog in blogs" v-bind:key="blog.id">
-        <h2>{{ blog.title }}</h2>
+        <!-- <h2>{{}}</h2> -->
         <img
           :src="blog.image"
         />
+        <p>{{ blog.title }}</p>
       </li>
     </ul>
   </div>
@@ -44,14 +45,26 @@ export default {
 </script>
 
 <style>
+#blog_post {
+  width: 100%;
+}
 #blog_post > ul {
+  display: flex;
+  flex-wrap: wrap;
+	justify-content: space-between;
   list-style: none;
+  padding: 0;
 }
 #blog_post > ul > li {
-  display: inline-block;
+  width: 32%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(250, 250, 250);
+  box-shadow: 1.5rem 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+  border-radius: 10px;
+  margin-bottom: 30px;
+  overflow: hidden;
 }
 #blog_post > ul > li > img {
-  width: 300px;
-  height: auto;
+  width: 100%;
 }
 </style>

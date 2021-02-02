@@ -4,8 +4,8 @@
       <fa class="tweet-icon" :icon="['fas', 'feather']" />
     </div>
     <v-dialog v-model="dialog" max-width="80%" class="post_dialog">
-      <v-btn v-on:click="changeShow">toggle</v-btn>
       <div class="content">
+        <v-btn v-on:click="changeShow">toggle</v-btn>
         <Tweet v-if="show" />
         <Blog  v-if="!show" />
       </div>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style>
-.post_dialog{
+.content {
   background-color: rgb(255, 255, 255);
 }
 </style>
