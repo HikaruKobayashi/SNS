@@ -20,16 +20,21 @@
         </li>
       </ul>
     </v-container>
+    <v-container>
+      <BlogPost />
+    </v-container>
   </div>
 </template>
 
 <script>
 import axios     from '@/plugins/axios'
 import User      from '~/components/User.vue'
+import BlogPost      from '~/components/BlogPost.vue'
 import ErrorCard from '~/components/ErrorCard.vue'
 export default {
   components: {
     User,
+    BlogPost,
     ErrorCard
   },
   data () {
@@ -77,7 +82,7 @@ export default {
 
 <style>
 .v-main {
-  background: #262626;
+  background-color: rgb(243, 243, 243);
 }
 #user_id > div > ul {
   overflow-x: auto;

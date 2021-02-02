@@ -12,34 +12,7 @@
       <v-card>
         <v-card-title>Edit Profile</v-card-title>
         <v-card-text>
-          <v-row>
-            <v-avatar 
-              v-if="uploadImageUrl"
-              size="62"
-            >
-            <img 
-              :src="uploadImageUrl"
-            />
-            </v-avatar>
-            <v-avatar
-              v-else
-              size="62"
-            >
-            <img
-              src="@/assets/img/no-setting.png"
-            />
-            </v-avatar>
-          </v-row>
-          <v-file-input
-            v-model="inputValue"
-            accept="image/png, image/jpeg, image/bmp, image/gif, image/heic"
-            @change="setImage"
-          />
-          <v-btn
-            @click="createImage"
-          >
-            Change
-          </v-btn>
+          <Avatar />
         </v-card-text>
         <v-card-text>
           <v-form>
@@ -81,10 +54,12 @@
 <script>
 import firebase from '@/plugins/firebase';
 import axios    from '@/plugins/axios'
+import Avatar   from '~/components/Avatar.vue'
 import Logout   from '~/components/Logout.vue'
 
 export default {
   components: {
+    Avatar,
     Logout,
   },
   data() {
@@ -95,8 +70,6 @@ export default {
       password: '',
       passwordConfirm: '',
       disabled: false,
-      image: '',
-      uploadImageUrl: ''
     }
   },
   computed: {
@@ -106,14 +79,6 @@ export default {
     paramsUserId () {
       return this.$route.params.id
     },
-    inputValue: {
-      get() {
-        return this.value;
-      },
-      set(value) {
-        this.$emit("input", value);
-      }
-    }
   },
   mounted (){
     const setDefaultData = () => {
@@ -129,37 +94,6 @@ export default {
     } else {
       setTimeout(setDefaultData, 1000)
     }
-  },
-  methods:{
-    setImage(file){
-      if (file !== undefined && file !== null) {
-        if (file.name.lastIndexOf('.') <= 0) {
-          return
-        }
-        const fr = new FileReader()
-        fr.readAsDataURL(file)
-        fr.addEventListener('load', () => {
-           this.uploadImageUrl = fr.result
-        })
-      } else {
-        this.uploadImageUrl = ''
-      }
-    },
-    createImage(){
-      const formData = new FormData()
-      formData.append('image', this.image)
-      const config = {
-        headers: {
-          'content-type': 'multipart/form-data'
-        }
-      }
-      axios
-        .patch(`/v1/users/${this.currentUser.user.id}/update_image`, formData, config)
-        .then((response) => {
-          this.image = response.data.image
-          this.$store.commit('setUserAvatarUrl', response.data.image)
-      })
-    },
   }
 }
 </script>

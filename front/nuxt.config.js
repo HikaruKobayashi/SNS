@@ -29,6 +29,7 @@ export default {
     "@/plugins/auth-check",
     "@/plugins/vee-validate",
     "@/plugins/fontawesome",
+    "@/plugins/croppa",
     { src: '~/plugins/aos', ssr: false },
   ],
 

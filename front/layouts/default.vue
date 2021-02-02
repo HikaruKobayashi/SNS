@@ -4,11 +4,10 @@
       <v-app-bar>
         <h2 class='app-title'>SNS</h2>
         <v-spacer></v-spacer>
-        <!-- <Tweet v-show="$vuetify.breakpoint.xs" /> -->
+        <Post />
       </v-app-bar>
     </header>
     <v-main>
-      <!-- <Tweet class='tweet' v-show="$vuetify.breakpoint.lg" /> -->
       <v-container>
         <nuxt />
       </v-container>
@@ -23,10 +22,10 @@
 
 <script>
 import axios from '@/plugins/axios'
-// import Tweet from '~/components/Tweet.vue'
+import Post from '~/components/Post.vue'
 export default {
   components: {
-    // Tweet,
+    Post
   },
   data () {
     return {
