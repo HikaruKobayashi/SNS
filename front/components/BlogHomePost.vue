@@ -5,7 +5,9 @@
         <img
           :src="blog.image"
         />
-        <p>{{ blog.title }}</p>
+        <div>
+          <p>{{ blog.title }}</p>
+        </div>
         <div>
           <v-avatar class="user-img">
             <img
@@ -76,11 +78,13 @@ export default {
   width: 100%;
 }
 #blog_home_post > ul > li > div {
-  display: flex;
-  align-items: center;
   padding: 15px;
 }
-#blog_home_post > ul > li > div > p {
+#blog_home_post > ul > li > div:last-child {
+  display: flex;
+  align-items: center;
+}
+#blog_home_post > ul > li > div:last-child > p {
   margin: 0 0 0 10px;
 }
 /* Responsive */

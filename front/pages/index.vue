@@ -1,14 +1,14 @@
 <template>
   <section>
     <div v-if="user">
-      <div class="switch_btn">
-        <fa class="switch_icon" :icon="['fas', 'exchange-alt']" v-on:click="changeShow" />
+      <div class="switch_btn" v-on:click="changeShow">
+        <fa class="switch_icon" :icon="['fas', 'exchange-alt']" />
       </div>
       <BlogHomePost v-if="show" />
       <TweetHomePost v-else />
     </div>
     <div v-else>
-      <Logo />
+      <lp />
     </div>
   </section>
 </template>
@@ -17,11 +17,13 @@
 import axios from '@/plugins/axios'
 import TweetHomePost from '~/components/TweetHomePost.vue'
 import BlogHomePost from '~/components/BlogHomePost.vue'
+import lp from '~/components/lp.vue'
 
 export default {
   components: {
     TweetHomePost,
-    BlogHomePost
+    BlogHomePost,
+    lp
   },
   data() {
     return {
@@ -32,19 +34,6 @@ export default {
     user() {
       return this.$store.state.currentUser; 
     }
-  },
-  mounted () {
-    axios
-      .get('/v1/tweets/')
-      .then((res) => {
-        this.users = res.data
-        const user = new Array();
-        for( let i = 0; i < res.data.length; i++ ) {
-          this.users[i].content
-          user.push(this.users[i])
-        }
-        this.users = user
-      })
   },
   methods: {
     changeShow: function(){
