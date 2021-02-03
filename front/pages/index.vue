@@ -1,62 +1,59 @@
 <template>
-  <div class="container">
+  <section>
     <div v-if="user">
-      <h2>{{user.name}}</h2>
-      <Logo />
-      <h1 class="title">
-        sns_app
-      </h1>
+      <div class="switch_btn" v-on:click="changeShow">
+        <fa class="switch_icon" :icon="['fas', 'exchange-alt']" />
+      </div>
+      <BlogHomePost v-if="show" />
+      <TweetHomePost v-else />
     </div>
-  </div>
+    <div v-else>
+      <lp />
+    </div>
+  </section>
 </template>
 
 <script>
+import axios from '@/plugins/axios'
+import TweetHomePost from '~/components/TweetHomePost.vue'
+import BlogHomePost from '~/components/BlogHomePost.vue'
+import lp from '~/components/lp.vue'
+
 export default {
+  components: {
+    TweetHomePost,
+    BlogHomePost,
+    lp
+  },
+  data() {
+    return {
+      show: true,
+    }
+  },
   computed: {
     user() {
       return this.$store.state.currentUser; 
     }
   },
+  methods: {
+    changeShow: function(){
+      this.show = !this.show;
+    }
+  }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.switch_btn {
+  width: 50px;
+  height: 50px;
+  line-height: 55px;
   text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
 }
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.switch_icon {
+  font-size: 25px;
 }
 </style>

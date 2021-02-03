@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <div>
     <div v-for="user in users" v-bind:key="user.id">
       <v-card data-aos='fade-up'>
         <v-container class="mb-10">
@@ -9,15 +9,21 @@
         </v-container>
       </v-card>
     </div>
-  </v-container>
+  </div>
 </template>
 
 <script>
 import axios from '@/plugins/axios'
+
 export default {
-  data () {
+  data() {
     return {
-      users : {},
+      users: {}
+    }
+  },
+  computed: {
+    user() {
+      return this.$store.state.currentUser; 
     }
   },
   mounted () {
