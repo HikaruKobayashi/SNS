@@ -1,7 +1,7 @@
 <template>
   <div id="blog_post">
     <ul>
-      <li v-for="blog in blogs" v-bind:key="blog.id" data-aos="fade-up">
+      <li v-for="blog in blogs" v-bind:key="blog.id">
         <img
           :src="blog.image"
         />
@@ -37,7 +37,6 @@ export default {
           blog.unshift(res.data.blogs[i])
         }
         this.blogs = blog
-        console.log(this.blogs)
       })
   },
 }
@@ -48,26 +47,30 @@ export default {
   width: 100%;
 }
 #blog_post > ul {
-  display: flex;
-  flex-wrap: wrap;
-	justify-content: space-between;
+  overflow-x: auto;
+  white-space: nowrap;
   list-style: none;
-  padding: 0;
+  padding: 50px;
 }
 #blog_post > ul > li {
-  width: 32%;
+  width: 300px;
+  height: 350px;
+  border-radius: 16px;
+  display: inline-block;
+  transition: .2s;
+  box-shadow: -2rem 0 3rem -2rem #292929;
   background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(250, 250, 250);
   box-shadow: 1.5rem 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
-  border-radius: 10px;
-  margin-bottom: 30px;
   overflow: hidden;
   cursor: pointer;
 }
+#blog_post > ul > li:not(:nth-child(1)) {
+  margin-left: -130px;
+  box-shadow: -3rem 0 3rem -2rem #292929;
+}
 #blog_post > ul > li:hover {
-  border: 1px solid rgb(253, 253, 253);
-  box-shadow: 0 1px 4px rgba(0,0,0,.2);
-  transform: translateY(3px);
+  margin-right: 130px;
+  transform: translate( -14px,-10px) rotate( 3deg );
 }
 #blog_post > ul > li > img {
   width: 100%;
