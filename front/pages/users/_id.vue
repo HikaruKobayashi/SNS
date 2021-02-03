@@ -12,12 +12,18 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container>
+    <v-container v-if="blogs.length > 0 && tweets.length > 0">
       <div class="switch_btn" v-on:click="changeShow">
         <fa class="switch_icon" :icon="['fas', 'exchange-alt']" />
       </div>
       <BlogPost v-if="show" />
       <TweetPost v-else />
+    </v-container>
+    <v-container v-else-if="tweets.length > 0">
+      <TweetPost />
+    </v-container>
+    <v-container v-else-if="blogs.length > 0">
+      <BlogPost />
     </v-container>
   </div>
 </template>
@@ -38,6 +44,8 @@ export default {
   data () {
     return {
       user: {},
+      blogs: {},
+      tweets: {},
       show: true,
       userNotFound: false,
     }
@@ -61,6 +69,24 @@ export default {
           this.userNotFound = true
         }
         console.log(error)
+      })
+    axios
+      .get(`/v1/blogs/${this.$route.params.id}`)
+      .then((res) => {
+        const blog = new Array();
+        for( let i = 0; i < res.data.blogs.length; i++ ) {
+          blog.unshift(res.data.blogs[i])
+        }
+        this.blogs = blog
+      })
+    axios
+      .get(`/v1/tweets/${this.$route.params.id}`)
+      .then((res) => {
+        const tweet = new Array();
+        for( let i = 0; i < res.data.tweets.length; i++ ) {
+          tweet.unshift(res.data.tweets[i])
+        }
+        this.tweets = tweet
       })
   },
   methods: {
