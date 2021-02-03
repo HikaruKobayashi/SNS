@@ -41,6 +41,9 @@ export default {
 </script>
 
 <style>
+.v-main {
+  background-color: rgb(243, 243, 243);
+}
 .tweet {
   position: fixed;
 	top: 50%;

@@ -1,11 +1,26 @@
 <template>
-  <div id="blog_post">
+  <div id="blog_home_post">
     <ul>
       <li v-for="blog in blogs" v-bind:key="blog.id" data-aos="fade-up">
         <img
           :src="blog.image"
         />
         <p>{{ blog.title }}</p>
+        <div>
+          <v-avatar class="user-img">
+            <img
+              v-if="!!blog.user.avatar_url"
+              size="62"
+              :src="blog.user.avatar_url"
+            />
+            <img
+              v-else
+              size="62"
+              src="@/assets/img/no-setting.png"
+            />
+          </v-avatar>
+          <p>{{ blog.user.name }}</p>
+        </div>
       </li>
     </ul>
   </div>
@@ -17,7 +32,7 @@ import axios from '@/plugins/axios'
 export default {
   data() {
     return {
-      blogs: {}
+      blogs: {},
     }
   },
   computed: {
@@ -32,41 +47,46 @@ export default {
     axios
       .get('/v1/blogs/')
       .then((res) => {
-        console.log(res.data)
         this.blogs = res.data
-        console.log(this.blogs)
       })
   },
 }
 </script>
 
 <style>
-#blog_post {
+#blog_home_post {
   width: 100%;
 }
-#blog_post > ul {
-  display: flex;
-  flex-wrap: wrap;
-	justify-content: space-between;
+#blog_home_post > ul {
+  width: 100%;
   list-style: none;
   padding: 0;
 }
-#blog_post > ul > li {
-  width: 32%;
+#blog_home_post > ul > li {
+  width: 50%;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(250, 250, 250);
   box-shadow: 1.5rem 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin: 0 auto 30px auto;
   overflow: hidden;
   cursor: pointer;
 }
-#blog_post > ul > li:hover {
-  border: 1px solid rgb(253, 253, 253);
-  box-shadow: 0 1px 4px rgba(0,0,0,.2);
-  transform: translateY(3px);
-}
-#blog_post > ul > li > img {
+#blog_home_post > ul > li > img {
   width: 100%;
+}
+#blog_home_post > ul > li > div {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+#blog_home_post > ul > li > div > p {
+  margin: 0 0 0 10px;
+}
+/* Responsive */
+@media (max-width: 800px) {
+  #blog_home_post > ul > li {
+    width: 90%;
+  }
 }
 </style>
