@@ -1,29 +1,24 @@
 <template>
-  <section>
-    <div v-if="user">
-      <v-btn v-on:click="changeShow">Switch</v-btn>
-      <BlogHomePost v-if="show" />
-      <TweetPost v-else />
+  <div>
+    <div v-for="user in users" v-bind:key="user.id">
+      <v-card data-aos='fade-up'>
+        <v-container class="mb-10">
+          <p>{{user.username}}</p>
+          <v-divider></v-divider>
+          <p>{{user.content}}</p>
+        </v-container>
+      </v-card>
     </div>
-    <div v-else>
-      <Logo />
-    </div>
-  </section>
+  </div>
 </template>
 
 <script>
 import axios from '@/plugins/axios'
-import TweetPost from '~/components/TweetPost.vue'
-import BlogHomePost from '~/components/BlogHomePost.vue'
 
 export default {
-  components: {
-    TweetPost,
-    BlogHomePost
-  },
   data() {
     return {
-      show: true,
+      users: {}
     }
   },
   computed: {
@@ -43,11 +38,6 @@ export default {
         }
         this.users = user
       })
-  },
-  methods: {
-    changeShow: function(){
-      this.show = !this.show;
-    }
   }
 }
 </script>
