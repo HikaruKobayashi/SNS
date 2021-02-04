@@ -21,7 +21,7 @@
               src="@/assets/img/no-setting.png"
             />
           </v-avatar>
-          <p>{{ blog.user.name }}</p>
+          <a :href="'/users/'+blog.user_id">{{ blog.user.name }}</a>
         </div>
       </li>
     </ul>
@@ -72,7 +72,6 @@ export default {
   border-radius: 10px;
   margin: 0 auto 30px auto;
   overflow: hidden;
-  cursor: pointer;
 }
 #blog_home_post > ul > li > img {
   width: 100%;
@@ -84,7 +83,9 @@ export default {
   display: flex;
   align-items: center;
 }
-#blog_home_post > ul > li > div:last-child > p {
+#blog_home_post > ul > li > div:last-child > a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
   margin: 0 0 0 10px;
 }
 /* Responsive */

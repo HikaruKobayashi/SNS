@@ -18,7 +18,7 @@
               src="@/assets/img/no-setting.png"
             />
           </v-avatar>
-          <p>{{ user.user.name }}</p>
+          <a :href="'/users/'+user.user_id">{{ user.user.name }}</a>
         </div>
       </v-card>
     </div>
@@ -71,7 +71,9 @@ export default {
   align-items: center;
   padding: 15px;
 }
-.tweet_user > p {
+.tweet_user > a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
   margin: 0 0 0 10px;
 }
 /* Responsive */
