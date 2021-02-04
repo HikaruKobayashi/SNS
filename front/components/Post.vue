@@ -5,7 +5,9 @@
     </div>
     <v-dialog v-model="dialog" max-width="80%" class="post_dialog">
       <div class="content">
-        <v-btn v-on:click="changeShow">toggle</v-btn>
+        <div class="switch_btn" v-on:click="changeShow">
+          <fa class="switch_icon" :icon="['fas', 'exchange-alt']" />
+        </div>
         <Tweet v-if="show" />
         <Blog  v-if="!show" />
       </div>

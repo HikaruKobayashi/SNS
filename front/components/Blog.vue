@@ -12,6 +12,7 @@
           <v-text-field
             class="col-10 mt-8"
             v-model="blog.title"
+            placeholder="Description of this post"
             required
           />
         </v-col>
@@ -22,7 +23,7 @@
             class="mr-3"
             @click="createBlogPost"
           >
-          Post
+          Tweet
           </v-btn>
         </v-col>
       </v-row>

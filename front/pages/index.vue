@@ -1,8 +1,11 @@
 <template>
   <section>
-    <div v-if="user">
-      <div class="switch_btn" v-on:click="changeShow">
-        <fa class="switch_icon" :icon="['fas', 'exchange-alt']" />
+    <div v-if="user" class="user_container">
+      <div class="user_info">
+        <Post />
+        <div class="switch_btn" v-on:click="changeShow">
+          <fa class="switch_icon" :icon="['fas', 'exchange-alt']" />
+        </div>
       </div>
       <BlogHomePost v-if="show" />
       <TweetHomePost v-else />
@@ -15,6 +18,7 @@
 
 <script>
 import axios from '@/plugins/axios'
+import Post from '~/components/Post.vue'
 import TweetHomePost from '~/components/TweetHomePost.vue'
 import BlogHomePost from '~/components/BlogHomePost.vue'
 import lp from '~/components/lp.vue'
@@ -23,7 +27,8 @@ export default {
   components: {
     TweetHomePost,
     BlogHomePost,
-    lp
+    lp,
+    Post
   },
   data() {
     return {
@@ -44,9 +49,20 @@ export default {
 </script>
 
 <style>
+.user_container {
+  position: relative;
+}
+.user_info {
+  position: absolute;
+  left:50%;
+  margin-left: 400px;
+  width: 200px;
+  display: flex;
+}
 .switch_btn {
   width: 50px;
   height: 50px;
+  margin-left: 20px;
   line-height: 55px;
   text-align: center;
   border-radius: 50%;

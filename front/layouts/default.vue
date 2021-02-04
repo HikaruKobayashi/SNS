@@ -2,9 +2,8 @@
   <v-app>
     <header>
       <v-app-bar>
-        <h2 class='app-title'>SNS</h2>
+        <h2 class='app-title'><a href="/">SNS</a></h2>
         <v-spacer></v-spacer>
-        <Post />
       </v-app-bar>
     </header>
     <v-main>
@@ -22,11 +21,7 @@
 
 <script>
 import axios from '@/plugins/axios'
-import Post from '~/components/Post.vue'
 export default {
-  components: {
-    Post
-  },
   data () {
     return {
       user: {},
@@ -44,10 +39,8 @@ export default {
 .v-main {
   background-color: rgb(243, 243, 243);
 }
-.tweet {
-  position: fixed;
-	top: 50%;
-	left: 5%;
-	transform: translate(-50%, -50%);
+.app-title > a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
 }
 </style>
