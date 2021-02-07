@@ -1,6 +1,6 @@
 class V1::CommentsController < ApplicationController
   def index
-    @comment = Comment.all
+    @comment = Comment.all.order(created_at: :desc)
     render json: @comment
   end
 

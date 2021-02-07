@@ -1,7 +1,7 @@
 <template>
   <v-form>
     <v-text-field
-      v-model="comment"
+      v-model="text"
       placeholder="comment"
     />
     <v-btn
@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       users: {},
-      comment: '',
+      text: '',
     }
   },
   computed: {
@@ -36,12 +36,12 @@ export default {
       axios
         .post('/v1/comments', {
           current_user_id: this.currentUser.user.id,
-          comment: this.comment,
+          text: this.text,
           tweet_id: this.tweetId
         })
         .then((res) => {
           this.$router.push('/')
-          this.comment = ''
+          this.text = ''
         })
     }
   }
