@@ -20,6 +20,7 @@
           </v-avatar>
           <a :href="'/users/'+user.user_id">{{ user.user.name }}</a>
         </div>
+        <CommentForm :tweetId="user.id"/>
       </v-card>
     </div>
   </div>
@@ -27,15 +28,21 @@
 
 <script>
 import axios from '@/plugins/axios'
+import CommentForm from '~/components/CommentForm.vue'
 
 export default {
+  component: {
+    CommentForm
+  },
   data() {
     return {
-      users: {}
+      users: {},
+      comment: '',
+      tweetId: ''
     }
   },
   computed: {
-    user() {
+    currentUser() {
       return this.$store.state.currentUser; 
     }
   },
