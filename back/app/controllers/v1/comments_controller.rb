@@ -1,6 +1,7 @@
 class V1::CommentsController < ApplicationController
   def index
-    @comment = Comment.all.order(created_at: :desc)
+    @comment = Comment.where(tweet_id: params[:tweet_id]).order(created_at: :asc)
+
     render json: @comment
   end
 
