@@ -4,7 +4,10 @@ Rails.application.routes.draw do
       resources :comments, only: [:index]
     end
     resources :comments, only: [:create]
-    resources :blogs
+    resources :blogs do
+      resources :blog_comments, only: [:index]
+    end
+    resources :blog_comments, only: [:create]
     resources :users, only: [:index, :show, :edit, :create] do
       member do
         post '/follow', to: 'relationships#create'
