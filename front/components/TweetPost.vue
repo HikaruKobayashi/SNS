@@ -34,7 +34,6 @@ export default {
           tweet.unshift(res.data.tweets[i])
         }
         this.tweets = tweet
-        console.log(this.tweets)
       })
   }
 }

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   namespace :v1 do
     resources :tweets, only: [:index, :show, :create, :destroy] do
-      resources :comments, only: [:create, :destroy]
+      resources :comments, only: [:index]
     end
-    resources :blogs
+    resources :comments, only: [:create]
+    resources :blogs do
+      resources :blog_comments, only: [:index]
+    end
+    resources :blog_comments, only: [:create]
     resources :users, only: [:index, :show, :edit, :create] do
       member do
         post '/follow', to: 'relationships#create'

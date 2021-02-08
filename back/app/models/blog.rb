@@ -2,6 +2,7 @@ class Blog < ApplicationRecord
   include Rails.application.routes.url_helpers
 
   belongs_to :user
+  has_many :blog_comments, dependent: :destroy
 
   has_one_attached :eyecatch
   attr_accessor :image

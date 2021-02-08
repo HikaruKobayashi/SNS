@@ -1,7 +1,7 @@
 class V1::TweetsController < ApplicationController
   def index
-    tweet = Tweet.all.order(created_at: :desc)
-    render json: tweet
+    @tweet = Tweet.all.order(created_at: :desc)
+    render json: @tweet
   end
 
   def show

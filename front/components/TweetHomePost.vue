@@ -2,9 +2,6 @@
   <div id="tweet_home_post">
     <div v-for="user in users" v-bind:key="user.id">
       <v-card data-aos='fade-up'>
-        <div class="tweet_home_content">
-          <p>{{user.content}}</p>
-        </div>
         <div class="tweet_user">
           <v-avatar class="user-img">
             <img
@@ -20,6 +17,10 @@
           </v-avatar>
           <a :href="'/users/'+user.user_id">{{ user.user.name }}</a>
         </div>
+        <div class="tweet_home_content">
+          <p>{{user.content}}</p>
+        </div>
+        <CommentSection :tweetId="user.id"/>
       </v-card>
     </div>
   </div>
@@ -27,15 +28,20 @@
 
 <script>
 import axios from '@/plugins/axios'
+import CommentSection from '~/components/CommentSection.vue'
 
 export default {
+  component: {
+    CommentSection,
+  },
   data() {
     return {
-      users: {}
+      users: {},
+      tweetId: ''
     }
   },
   computed: {
-    user() {
+    currentUser() {
       return this.$store.state.currentUser; 
     }
   },

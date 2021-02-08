@@ -6,9 +6,6 @@
           :src="blog.image"
         />
         <div>
-          <p>{{ blog.title }}</p>
-        </div>
-        <div>
           <v-avatar class="user-img">
             <img
               v-if="!!blog.user.avatar_url"
@@ -23,6 +20,10 @@
           </v-avatar>
           <a :href="'/users/'+blog.user_id">{{ blog.user.name }}</a>
         </div>
+        <div>
+          <p>{{ blog.title }}</p>
+        </div>
+        <BlogCommentSection :blogId="blog.id"/>
       </li>
     </ul>
   </div>
@@ -30,11 +31,16 @@
 
 <script>
 import axios from '@/plugins/axios'
+import BlogCommentSection from '~/components/BlogCommentSection.vue'
 
 export default {
+  component: {
+    BlogCommentSection,
+  },
   data() {
     return {
       blogs: {},
+      blogId: ''
     }
   },
   computed: {
@@ -79,11 +85,11 @@ export default {
 #blog_home_post > ul > li > div {
   padding: 15px;
 }
-#blog_home_post > ul > li > div:last-child {
+#blog_home_post > ul > li > div:nth-child(2) {
   display: flex;
   align-items: center;
 }
-#blog_home_post > ul > li > div:last-child > a {
+#blog_home_post > ul > li > div:nth-child(2) > a {
   text-decoration: none;
   color: rgb(0, 0, 0);
   margin: 0 0 0 10px;

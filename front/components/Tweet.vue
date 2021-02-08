@@ -47,7 +47,7 @@ export default {
           current_user_id: this.currentUser.user.id
         })
         .then((res) => {
-          this.$router.push('/home')
+          this.$router.push('/')
           this.content = ''
           this.dialog = false
         })
