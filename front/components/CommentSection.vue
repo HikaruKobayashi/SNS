@@ -62,7 +62,6 @@ export default {
       .get(`/v1/tweets/${this.tweetId}/comments`)
       .then((res) => {
         this.comments = res.data
-        console.log(this.comments);
       })
   },
   methods: {

@@ -50,7 +50,6 @@ export default {
     axios
       .get(`/v1/tweets/${this.$route.params.id}`)
       .then((res) => {
-        console.log(res.data.avatar_url);
         this.user = res.data
         this.image = res.data.avatar_url
       })
