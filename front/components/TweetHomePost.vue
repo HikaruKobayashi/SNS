@@ -2,9 +2,6 @@
   <div id="tweet_home_post">
     <div v-for="user in users" v-bind:key="user.id">
       <v-card data-aos='fade-up'>
-        <div class="tweet_home_content">
-          <p>{{user.content}}</p>
-        </div>
         <div class="tweet_user">
           <v-avatar class="user-img">
             <img
@@ -19,6 +16,9 @@
             />
           </v-avatar>
           <a :href="'/users/'+user.user_id">{{ user.user.name }}</a>
+        </div>
+        <div class="tweet_home_content">
+          <p>{{user.content}}</p>
         </div>
         <CommentSection :tweetId="user.id"/>
       </v-card>
