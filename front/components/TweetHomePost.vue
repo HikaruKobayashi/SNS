@@ -21,7 +21,6 @@
           <a :href="'/users/'+user.user_id">{{ user.user.name }}</a>
         </div>
         <CommentSection :tweetId="user.id"/>
-        <CommentForm :tweetId="user.id"/>
       </v-card>
     </div>
   </div>
@@ -29,12 +28,10 @@
 
 <script>
 import axios from '@/plugins/axios'
-import CommentForm from '~/components/CommentForm.vue'
 import CommentSection from '~/components/CommentSection.vue'
 
 export default {
   component: {
-    CommentForm,
     CommentSection,
   },
   data() {

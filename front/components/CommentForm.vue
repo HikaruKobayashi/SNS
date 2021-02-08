@@ -1,15 +1,23 @@
 <template>
   <v-form>
-    <v-text-field
-      v-model="text"
-      placeholder="comment"
-    />
-    <v-btn
-      class="mr-3"
-      @click="createComment"
-    >
-    Send
-    </v-btn>
+    <v-row>
+      <v-col align="center">
+        <v-text-field
+          v-model="text"
+          placeholder="comment"
+        />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col align="right">
+        <v-btn
+          class="mr-3"
+          @click="createComment"
+        >
+        Comment
+        </v-btn>
+      </v-col>
+    </v-row>
   </v-form>
 </template>
 
