@@ -15,8 +15,6 @@ class User < ApplicationRecord
 
   validates :profile, length: { maximum: 250 }
 
-  mount_uploader :image, ImageUploader
-
   def follow(other_user)
     following_relationships.create(following_id: other_user.id)
   end
