@@ -3,4 +3,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :tweets
   has_many :comments
   has_many :blogs
+  has_many :blog_likes
 end
