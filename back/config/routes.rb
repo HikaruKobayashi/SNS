@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :blogs do
       resources :blog_comments, only: [:index]
-      resources :blog_likes, only: [:index]
+      resources :blog_likes, only: [:index, :show, :destroy]
     end
     resources :blog_comments, only: [:create]
     resources :blog_likes, only: [:create]
