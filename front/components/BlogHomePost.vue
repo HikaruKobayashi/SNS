@@ -23,7 +23,6 @@
         <div>
           <p>{{ blog.title }}</p>
         </div>
-        <BlogLike :blogId="blog.id"/>
         <BlogCommentSection :blogId="blog.id"/>
       </li>
     </ul>
@@ -32,12 +31,10 @@
 
 <script>
 import axios from '@/plugins/axios'
-import BlogLike from '~/components/BlogLike.vue'
 import BlogCommentSection from '~/components/BlogCommentSection.vue'
 
 export default {
   component: {
-    BlogLike,
     BlogCommentSection,
   },
   data() {

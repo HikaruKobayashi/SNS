@@ -1,9 +1,13 @@
 <template>
-  <div id="blog_like">
-    <fa class="blog_like_btn" v-if="!liked" @click="like" :icon="['fas', 'heart']" />
-    <fa class="blog_liked_btn" v-else @click="unlike" :icon="['fas', 'heart']" />
-    <p>{{count}}</p>
-  </div>
+  <ul id="blog_like">
+    <li>
+      <fa class="blog_like_btn" v-if="!liked" @click="like" :icon="['fas', 'heart']" />
+      <fa class="blog_liked_btn" v-else @click="unlike" :icon="['fas', 'heart']" />
+    </li>
+    <li>
+      <p>{{count}}</p>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -29,6 +33,7 @@ export default {
     axios
       .get(`/v1/blogs/${this.blogId}/blog_likes`)
       .then((res) => {
+        this.count = res.data.length
         if (res.data.length != 0) {
           this.liked = true
 
@@ -49,6 +54,7 @@ export default {
         })
         .then((res) => {
           this.liked = true
+          this.count ++;
           this.like_id = res.data.id
         })
     },
@@ -59,6 +65,7 @@ export default {
           blog_id: this.blogId
         })
         .then((res) => {
+          this.count --;
           this.liked = false
         })
     }
@@ -67,6 +74,12 @@ export default {
 </script>
 
 <style>
+#blog_like {
+  list-style: none;
+}
+#blog_like > li {
+  display: inline-block;
+}
 .blog_like_btn, .blog_liked_btn {
   cursor: pointer;
 }
