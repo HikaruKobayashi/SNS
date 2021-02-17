@@ -2,9 +2,13 @@ class User < ApplicationRecord
   include Rails.application.routes.url_helpers
 
   has_many :tweets, dependent: :destroy
+  has_many :tweet_likes, dependent: :destroy
+  has_many :tweet_liked, through: :tweet_likes, source: :tweet
   has_many :blogs, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :blog_comments, dependent: :destroy
+  has_many :blog_likes, dependent: :destroy
+  has_many :blog_liked, through: :blog_likes, source: :blog
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
   has_many :following, through: :following_relationships
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
@@ -29,6 +33,14 @@ class User < ApplicationRecord
 
   def follower_count
     self.follower_relationships.length
+  end
+
+  def already_blog_liked?(blog)
+    self.blog_likes.exists?(blog_id: blog.id)
+  end
+
+  def already_tweet_liked?(tweet)
+    self.tweet_likes.exists?(tweet_id: tweet.id)
   end
 
   def avatar=(image)

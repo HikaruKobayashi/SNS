@@ -2,6 +2,9 @@
   <div id="comment">
     <ul>
       <li>
+        <TweetLike :tweetId="this.tweetId" />
+      </li>
+      <li>
         <fa class="comment_icon" @click="active" :icon="['far', 'comment']" />
       </li>
       <li>
@@ -37,11 +40,13 @@
 
 <script>
 import axios from '@/plugins/axios'
+import TweetLike from '~/components/TweetLike.vue'
 import CommentForm from '~/components/CommentForm.vue'
 
 export default {
   component: {
     CommentForm,
+    TweetLike
   },
   props: {
     tweetId: Number

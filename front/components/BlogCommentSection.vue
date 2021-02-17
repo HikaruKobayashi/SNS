@@ -2,6 +2,9 @@
   <div id="blog_comment">
     <ul>
       <li>
+        <BlogLike :blogId="this.blogId" />
+      </li>
+      <li>
         <fa class="blog_comment_icon" @click="active" :icon="['far', 'comment']" />
       </li>
       <li>
@@ -37,11 +40,13 @@
 
 <script>
 import axios from '@/plugins/axios'
+import BlogLike from '~/components/BlogLike.vue'
 import BlogCommentForm from '~/components/BlogCommentForm.vue'
 
 export default {
   component: {
     BlogCommentForm,
+    BlogLike
   },
   props: {
     blogId: Number
