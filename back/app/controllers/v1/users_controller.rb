@@ -16,7 +16,7 @@ class V1::UsersController < ApplicationController
     @image = @user.image
     @profile = @user.profile
     if @user
-      render json: @user.to_json(methods: [:follower_count, :following_count]), image: @image, profile: @profile
+      render json: @user.to_json(methods: [:follower_count, :following_count, :following]), image: @image, profile: @profile
     end
   end
 

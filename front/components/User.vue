@@ -22,6 +22,7 @@
             v-if="Object.keys(user).length"
             :followerCount="user.follower_count"
             :followingCount="user.following_count"
+            :following="user.following"
             @addFollower="user.follower_count++"
             @subFollower="user.follower_count--"
           />

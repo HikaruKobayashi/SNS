@@ -6,7 +6,18 @@
           <span>フォロー</span>
         </v-row>
         <v-row>
-          <h3>{{ followingCount }}</h3>
+          <h3 @click.stop="dialog = true" class="following">{{ followingCount }}</h3>
+          <v-dialog v-model="dialog" max-width="80%">
+            <div class="following_dialog" v-for="user in following" v-bind:key="user.length">
+              <v-avatar class="user-img">
+                <img
+                  size="62"
+                  src="@/assets/img/no-setting.png"
+                />
+              </v-avatar>
+              <h3>{{user.name}}</h3>
+            </div>
+          </v-dialog>
         </v-row>
       </v-col>
       <v-col>
@@ -46,6 +57,15 @@ export default {
       type: Number,
       required: true,
       default: 0
+    },
+    following: {
+      type: Array,
+      required: true,
+    }
+  },
+  data() {
+    return {
+      dialog: false
     }
   },
   computed: {
@@ -55,6 +75,15 @@ export default {
     paramsUserId () {
       return this.$route.params.id
     }
-  }
+  },
 }
 </script>
+
+<style>
+.following {
+  cursor: pointer;
+}
+.following_dialog {
+  background-color: rgb(255, 255, 255);
+}
+</style>

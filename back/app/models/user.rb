@@ -35,6 +35,10 @@ class User < ApplicationRecord
     self.follower_relationships.length
   end
 
+  def following?(other_user)
+    self.following_relationships.find_by(following_id: other_user.id)
+  end
+
   def already_blog_liked?(blog)
     self.blog_likes.exists?(blog_id: blog.id)
   end
