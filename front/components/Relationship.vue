@@ -6,18 +6,7 @@
           <span>フォロー</span>
         </v-row>
         <v-row>
-          <h3 @click.stop="dialog = true" class="following">{{ followingCount }}</h3>
-          <v-dialog v-model="dialog" max-width="80%">
-            <div class="following_dialog" v-for="user in following" v-bind:key="user.length">
-              <v-avatar class="user-img">
-                <img
-                  size="62"
-                  src="@/assets/img/no-setting.png"
-                />
-              </v-avatar>
-              <h3>{{user.name}}</h3>
-            </div>
-          </v-dialog>
+          <Following :followingCount="this.followingCount" />
         </v-row>
       </v-col>
       <v-col>
@@ -25,7 +14,7 @@
           <span>フォロワー</span>
         </v-row>
         <v-row>
-          <h3>{{ followerCount }}</h3>
+          <Followed :followerCount="this.followerCount"/>
         </v-row>
       </v-col>
     </v-row>
@@ -43,9 +32,13 @@
 
 <script>
 import FollowButton from './Follow.vue'
+import Following from './Following.vue'
+import Followed from './Followed.vue'
 export default {
   components: {
-    FollowButton
+    FollowButton,
+    Following,
+    Followed
   },
   props: {
     followingCount: {
@@ -58,14 +51,10 @@ export default {
       required: true,
       default: 0
     },
-    following: {
-      type: Array,
-      required: true,
-    }
   },
   data() {
     return {
-      dialog: false
+      dialog: false,
     }
   },
   computed: {
@@ -78,12 +67,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.following {
-  cursor: pointer;
-}
-.following_dialog {
-  background-color: rgb(255, 255, 255);
-}
-</style>

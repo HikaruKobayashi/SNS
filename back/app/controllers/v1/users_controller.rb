@@ -16,7 +16,7 @@ class V1::UsersController < ApplicationController
     @image = @user.image
     @profile = @user.profile
     if @user
-      render json: @user.to_json(methods: [:follower_count, :following_count, :following]), image: @image, profile: @profile
+      render json: @user.to_json(methods: [:follower_count, :following_count]), image: @image, profile: @profile
     end
   end
 
@@ -24,6 +24,18 @@ class V1::UsersController < ApplicationController
     @user = User.find(params[:id])
     @image = @user.image
     render json: @user, image: @image
+  end
+
+  def following
+    @user  = User.find(params[:id])
+    @users = @user.following
+    render json: @users
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render json: @users
   end
 
   def create
