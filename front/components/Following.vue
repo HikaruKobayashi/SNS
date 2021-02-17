@@ -1,9 +1,21 @@
 <template>
   <div>
     <h3 @click.stop="dialog = true" class="following">{{followingCount}}</h3>
-    <v-dialog v-model="dialog" max-width="80%">
+    <v-dialog v-model="dialog" max-width="60%">
       <div class="following_dialog" v-for="user in following_user" v-bind:key="user.length">
-        <h3>{{user.name}}</h3>
+        <v-avatar class="user-img">
+          <img
+            v-if="!!user.avatar_url"
+            size="62"
+            :src="user.avatar_url"
+          />
+          <img
+            v-else
+            size="62"
+            src="@/assets/img/no-setting.png"
+          />
+        </v-avatar>
+        <a :href="'/users/'+user.id">{{ user.name }}</a>
       </div>
     </v-dialog>
   </div>
@@ -49,6 +61,14 @@ export default {
   cursor: pointer;
 }
 .following_dialog {
+  display: flex;
+  align-items: center;
+  padding: 5px 100px;
   background-color: rgb(255, 255, 255);
+}
+.following_dialog > a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  margin: 0 0 0 10px;
 }
 </style>
