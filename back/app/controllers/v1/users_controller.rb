@@ -26,6 +26,18 @@ class V1::UsersController < ApplicationController
     render json: @user, image: @image
   end
 
+  def following
+    @user  = User.find(params[:id])
+    @users = @user.following
+    render json: @users
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render json: @users
+  end
+
   def create
     @user = User.new(user_params)
     puts @user

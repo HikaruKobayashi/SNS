@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :blog_likes, only: [:create]
     resources :users, only: [:index, :show, :edit, :create] do
       member do
+        get :following, :followers
         post '/follow', to: 'relationships#create'
         delete '/unfollow', to: 'relationships#destroy'
         patch '/update_image', to: 'users#update_image'

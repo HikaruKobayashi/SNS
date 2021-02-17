@@ -6,7 +6,7 @@
           <span>フォロー</span>
         </v-row>
         <v-row>
-          <h3>{{ followingCount }}</h3>
+          <Following :followingCount="this.followingCount" />
         </v-row>
       </v-col>
       <v-col>
@@ -14,7 +14,7 @@
           <span>フォロワー</span>
         </v-row>
         <v-row>
-          <h3>{{ followerCount }}</h3>
+          <Followed :followerCount="this.followerCount"/>
         </v-row>
       </v-col>
     </v-row>
@@ -32,9 +32,13 @@
 
 <script>
 import FollowButton from './Follow.vue'
+import Following from './Following.vue'
+import Followed from './Followed.vue'
 export default {
   components: {
-    FollowButton
+    FollowButton,
+    Following,
+    Followed
   },
   props: {
     followingCount: {
@@ -46,6 +50,11 @@ export default {
       type: Number,
       required: true,
       default: 0
+    },
+  },
+  data() {
+    return {
+      dialog: false,
     }
   },
   computed: {
@@ -55,6 +64,6 @@ export default {
     paramsUserId () {
       return this.$route.params.id
     }
-  }
+  },
 }
 </script>
