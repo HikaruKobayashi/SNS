@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   namespace :v1 do
     resources :tweets, only: [:index, :show, :create, :destroy] do
       resources :comments, only: [:index]
+      resources :tweet_likes, only: [:index, :show, :destroy]
     end
     resources :comments, only: [:create]
+    resources :tweet_likes, only: [:create]
     resources :blogs do
       resources :blog_comments, only: [:index]
       resources :blog_likes, only: [:index, :show, :destroy]
