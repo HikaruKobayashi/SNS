@@ -12,25 +12,11 @@
       </v-container>
       <nuxt v-else />
     </v-main>
-    <v-bottom-navigation v-if="user" v-show="$vuetify.breakpoint.xs" app>
-      <v-btn v-for="menu in menus" :key="menu.title" :to="menu.url">
-        <v-icon>{{ menu.icon }}</v-icon>
-      </v-btn>
-    </v-bottom-navigation>
   </v-app>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      menus: [
-        { title: 'Index', icon: 'mdi-web', url: '/' },
-        { title: 'Home', icon: 'mdi-home', url: '/home' },
-        { title: 'Mypage', icon: 'mdi-account', url: `/users/4` },
-      ]
-    }
-  },
   computed: {
     user() {
       return this.$store.state.currentUser; 

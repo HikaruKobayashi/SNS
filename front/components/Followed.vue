@@ -16,6 +16,10 @@
           />
         </v-avatar>
         <a :href="'/users/'+user.id">{{ user.name }}</a>
+        <FollowButton
+          class="follow_btn"
+          :userId="user.id"
+        />
       </div>
     </v-dialog>
   </div>
@@ -23,8 +27,12 @@
 
 <script>
 import axios from '@/plugins/axios'
+import FollowButton from './Follow.vue'
 
 export default {
+  components: {
+    FollowButton,
+  },
   data() {
     return {
       dialog: false,
@@ -70,5 +78,8 @@ export default {
   text-decoration: none;
   color: rgb(0, 0, 0);
   margin: 0 0 0 10px;
+}
+.follow_btn {
+  margin-left: auto;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="login_btn" @click.stop="dialog = true">ログイン</div>
-    <v-dialog v-model="dialog" max-width="80%">
+    <v-dialog v-model="dialog" max-width="60%">
       <div class="login_form">
         <h2>Login</h2>
         <form>
@@ -21,7 +21,9 @@
             :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
             @click:append="show1 = !show1"
           />
-          <v-btn @click="login">submit</v-btn>
+          <div align="right">
+            <v-btn @click="login">submit</v-btn>
+          </div>
           <p v-if="error" class="errors">{{error}}</p>
         </form>
       </div>
@@ -81,6 +83,7 @@ export default {
   background: linear-gradient(rgb(52,62,98), rgb(24,26,41));
 }
 .login_form {
+  padding: 30px;
   background-color: #f3f3f3;
 }
 </style>

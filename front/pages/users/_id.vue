@@ -1,5 +1,5 @@
 <template>
-  <div id="user_id">
+  <div v-if="currentUser" id="user_id">
     <ErrorCard
       :display="userNotFound"
       title="404"
@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     currentUser () {
-      return this.$store.state.user
+      return this.$store.state.currentUser
     },
     paramsUserId () {
       return this.$route.params.id

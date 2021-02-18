@@ -52,9 +52,6 @@ export default {
   position: relative;
 }
 .user_info {
-  position: absolute;
-  left:50%;
-  margin-left: 400px;
   width: 200px;
   display: flex;
 }

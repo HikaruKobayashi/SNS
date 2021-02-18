@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="signup_btn" @click.stop="dialog = true">アカウント作成</div>
-    <v-dialog v-model="dialog" max-width="80%">
+    <v-dialog v-model="dialog" max-width="60%">
       <div class="signup_form">
         <h2>Sign Up</h2>
         <form>
@@ -25,7 +25,9 @@
             :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
             @click:append="show2 = !show2"
           />
-          <v-btn @click="signup">submit</v-btn>
+          <div align="right">
+            <v-btn @click="signup">submit</v-btn>
+          </div>
           <p v-if="error" class="errors">{{error}}</p>
         </form>
       </div>
@@ -83,6 +85,7 @@ export default {
   background: linear-gradient(rgb(52,62,98), rgb(24,26,41));
 }
 .signup_form {
+  padding: 30px;
   background-color: #f3f3f3;
 }
 </style>
