@@ -1,7 +1,8 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
+  <div>
+    <div class="signup_btn" @click.stop="dialog = true">アカウント作成</div>
+    <v-dialog v-model="dialog" max-width="80%">
+      <div class="signup_form">
         <h2>Sign Up</h2>
         <form>
           <v-text-field v-model="name" :counter="10" label="Name" data-vv-name="name" required />
@@ -27,9 +28,9 @@
           <v-btn @click="signup">submit</v-btn>
           <p v-if="error" class="errors">{{error}}</p>
         </form>
-      </v-col>
-    </v-row>
-  </v-container>
+      </div>
+    </v-dialog>
+  </div>
 </template>
 
 <script>
@@ -44,7 +45,8 @@ export default {
       passwordConfirm: "",
       show1: false,
       show2: false,
-      error: ""
+      error: "",
+      dialog: false,
     };
   },
   methods: {
@@ -69,3 +71,18 @@ export default {
   }
 };
 </script>
+
+<style>
+.signup_btn {
+  color: #f3f3f3;
+  width: 300px;
+  padding: 10px 60px;
+  margin: 10px auto;
+  cursor: pointer;
+  border-radius: 50px;
+  background: linear-gradient(rgb(52,62,98), rgb(24,26,41));
+}
+.signup_form {
+  background-color: #f3f3f3;
+}
+</style>

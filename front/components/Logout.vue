@@ -33,7 +33,7 @@ export default {
         .signOut()
         .then(() => {
           this.$store.commit("setUser", null);
-          this.$router.push("/login");
+          this.$router.push("/");
         })
         .catch(error => {
           console.log(error);

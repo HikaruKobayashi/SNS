@@ -1,7 +1,8 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
+  <div>
+    <div class="login_btn" @click.stop="dialog = true">ログイン</div>
+    <v-dialog v-model="dialog" max-width="80%">
+      <div class="login_form">
         <h2>Login</h2>
         <form>
           <v-text-field
@@ -23,9 +24,9 @@
           <v-btn @click="login">submit</v-btn>
           <p v-if="error" class="errors">{{error}}</p>
         </form>
-      </v-col>
-    </v-row>
-  </v-container>
+      </div>
+    </v-dialog>
+  </div>
 </template>
 <script>
 import firebase from "@/plugins/firebase";
@@ -35,7 +36,8 @@ export default {
       email: "",
       password: "",
       show1: false,
-      error: ""
+      error: "",
+      dialog: false,
     };
   },
   methods: {
@@ -63,9 +65,22 @@ export default {
   }
 };
 </script>
-<style scoped>
+
+<style>
 .errors {
   color: red;
   margin-top: 20px;
+}
+.login_btn {
+  color: #f3f3f3;
+  width: 300px;
+  padding: 10px 60px;
+  margin: 10px auto;
+  cursor: pointer;
+  border-radius: 50px;
+  background: linear-gradient(rgb(52,62,98), rgb(24,26,41));
+}
+.login_form {
+  background-color: #f3f3f3;
 }
 </style>

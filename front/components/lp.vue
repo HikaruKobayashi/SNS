@@ -7,13 +7,24 @@
       <li>
         <div>
           <h1>SNSをはじめよう</h1>
-          <p><a href="/signup">アカウント作成</a></p>
-          <p><a href="/login">ログイン</a></p>
+          <Signup />
+          <Login />
         </div>
       </li>
     </ul>
   </section>
 </template>
+
+<script>
+import Login from '~/components/Login.vue'
+import Signup from '~/components/Signup.vue'
+export default {
+  components: {
+    Login,
+    Signup
+  }
+}
+</script>
 
 <style>
 #top_page {
