@@ -11,23 +11,22 @@
       <TweetHomePost v-else />
     </div>
     <div v-else>
-      <lp />
+      <LP />
     </div>
   </section>
 </template>
 
 <script>
-import axios from '@/plugins/axios'
 import Post from '~/components/Post.vue'
 import TweetHomePost from '~/components/TweetHomePost.vue'
 import BlogHomePost from '~/components/BlogHomePost.vue'
-import lp from '~/components/lp.vue'
+import LP from '~/components/LP.vue'
 
 export default {
   components: {
     TweetHomePost,
     BlogHomePost,
-    lp,
+    LP,
     Post
   },
   data() {
