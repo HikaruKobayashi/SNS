@@ -82,4 +82,20 @@ export default {
 .follow_btn {
   margin-left: auto;
 }
+
+@media screen and (max-width: 800px) {
+  .following_dialog {
+    padding: 5px 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .following_dialog {
+    display: block;
+    padding: 5px 10px;
+  }
+  .follow_btn {
+    padding: 10px;
+    text-align: center;
+  }
+}
 </style>
