@@ -24,6 +24,6 @@ class V1::BlogCommentsController < ApplicationController
   private
 
   def blog_comment_params
-    params.permit(:text, :user_id, :blog_id)
+    params.permit(:text, :link, :user_id, :blog_id)
   end
 end

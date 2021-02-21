@@ -1,5 +1,5 @@
 class BlogSerializer < ActiveModel::Serializer
-  attributes :id, :title, :user_id, :image
+  attributes :id, :title, :link, :user_id, :image
   belongs_to :user
   has_many :blog_likes
 
