@@ -11,6 +11,12 @@
           />
           <v-text-field
             class="col-10 mt-8"
+            v-model="blog.link"
+            placeholder="Link to the blog"
+            required
+          />
+          <v-text-field
+            class="col-10 mt-8"
             v-model="blog.title"
             placeholder="Description of this post"
             required

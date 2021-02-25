@@ -2,9 +2,7 @@
   <div id="blog_home_post">
     <ul>
       <li v-for="blog in blogs" v-bind:key="blog.id" data-aos="fade-up">
-        <img
-          :src="blog.image"
-        />
+        <img :src="blog.image">
         <div>
           <v-avatar class="user-img">
             <img
@@ -22,6 +20,7 @@
         </div>
         <div>
           <p>{{ blog.title }}</p>
+          <a :href="blog.link"><fa :icon="['fas', 'running']" /></a>
         </div>
         <BlogCommentSection :blogId="blog.id"/>
       </li>
