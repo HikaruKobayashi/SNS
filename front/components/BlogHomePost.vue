@@ -20,9 +20,8 @@
         </div>
         <div>
           <p>{{ blog.title }}</p>
-          <a :href="blog.link"><fa :icon="['fas', 'running']" /></a>
         </div>
-        <BlogCommentSection :blogId="blog.id"/>
+        <BlogCommentSection :blogId="blog.id" :blogLink="blog.link" />
       </li>
     </ul>
   </div>

@@ -10,6 +10,9 @@
       <li>
         <p>{{comments.length}}</p>
       </li>
+      <li>
+        <a :href="this.blogLink"><fa :icon="['fas', 'running']" /></a>
+      </li>
     </ul>
     <div v-show="isShow">
       <BlogCommentForm :blogId="blogId"/>
@@ -49,7 +52,8 @@ export default {
     BlogLike
   },
   props: {
-    blogId: Number
+    blogId: Number,
+    blogLink: String
   },
   data() {
     return {
