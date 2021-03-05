@@ -75,4 +75,7 @@ export default {
 #blog_post > ul > li > img {
   width: 100%;
 }
+#blog_post > ul > li > p {
+  padding: 10px 30px;
+}
 </style>

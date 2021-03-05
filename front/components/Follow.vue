@@ -11,7 +11,7 @@
       v-if="!followed && !loading && !iconOnly"
       :disabled="disabled"
     >
-      <span style="margin-bottom: 2px">FOLLOW</span>
+      <span style="margin-bottom: 2px">フォローする</span>
     </v-btn>
     <v-btn
       small
@@ -20,7 +20,7 @@
       :disabled="disabled"
       v-if="followed && !loading && !iconOnly"
     >
-      <span style="margin-bottom: 2px">FOLLOWING</span>
+      <span style="margin-bottom: 2px">フォロー中</span>
     </v-btn>
   </div>
 </template>
@@ -101,20 +101,3 @@ export default {
   }
 }
 </script>
-
-<style>
-#follow_btn, #following_btn {
-  padding: 20px 50px !important;
-  border-radius: 50px !important;
-}
-#follow_btn {
-  background: linear-gradient(145deg, #ffffff, #e6e6e6) !important;
-  box-shadow:  8px 8px 12px #bababa,
-              -8px -8px 12px #ffffff !important;
-}
-#following_btn {
-  background: linear-gradient(145deg, #e6e6e6, #ffffff);
-  box-shadow:  8px 8px 12px #bababa,
-              -8px -8px 12px #ffffff;
-}
-</style>

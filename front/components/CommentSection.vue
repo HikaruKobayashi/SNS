@@ -6,8 +6,6 @@
       </li>
       <li>
         <fa class="comment_icon" @click="active" :icon="['far', 'comment']" />
-      </li>
-      <li>
         <p>{{comments.length}}</p>
       </li>
     </ul>
@@ -79,9 +77,13 @@ export default {
 
 <style>
 #comment > ul, .comment_container > ul {
+  padding-left: 0;
   list-style: none;
 }
-#comment > ul > li, .comment_container > ul > li {
+#comment > ul > li {
+  padding-right: 5px;
+}
+#comment > ul > li, .comment_container > ul > li, #comment > ul > li > p {
   display: inline-block;
 }
 .comment_container > ul {

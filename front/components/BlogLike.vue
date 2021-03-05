@@ -75,6 +75,7 @@ export default {
 
 <style>
 #blog_like {
+  padding-left: 0;
   list-style: none;
 }
 #blog_like > li {
