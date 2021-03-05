@@ -3,7 +3,7 @@
     <h3 @click.stop="dialog = true" class="followed">{{ followerCount }}</h3>
     <v-dialog v-model="dialog" max-width="60%">
       <div class="followed_dialog" v-for="user in followed_user" v-bind:key="user.length">
-        <v-avatar class="user-img">
+        <v-avatar>
           <img
             v-if="!!user.avatar_url"
             size="62"
@@ -11,6 +11,7 @@
           />
           <img
             v-else
+            class="user-img"
             size="62"
             src="@/assets/img/no-setting.png"
           />

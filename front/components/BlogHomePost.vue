@@ -4,7 +4,7 @@
       <li v-for="blog in blogs" v-bind:key="blog.id" data-aos="fade-up">
         <img :src="blog.image">
         <div>
-          <v-avatar class="user-img">
+          <v-avatar>
             <img
               v-if="!!blog.user.avatar_url"
               size="62"
@@ -12,6 +12,7 @@
             />
             <img
               v-else
+              class="user-img"
               size="62"
               src="@/assets/img/no-setting.png"
             />

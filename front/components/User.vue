@@ -2,7 +2,7 @@
   <v-card>
     <ul id="user_info">
       <li>
-        <v-avatar class="user-img">
+        <v-avatar>
           <img
             v-if="!!image"
             size="62"
@@ -10,6 +10,7 @@
           />
           <img
             v-else
+            class="user-img"
             size="62"
             src="@/assets/img/no-setting.png"
           />

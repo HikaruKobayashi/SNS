@@ -3,7 +3,7 @@
     <div v-for="user in users" v-bind:key="user.id">
       <v-card data-aos='fade-up'>
         <div class="tweet_user">
-          <v-avatar class="user-img">
+          <v-avatar>
             <img
               v-if="!!user.user.avatar_url"
               size="62"
@@ -11,6 +11,7 @@
             />
             <img
               v-else
+              class="user-img"
               size="62"
               src="@/assets/img/no-setting.png"
             />
