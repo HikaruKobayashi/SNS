@@ -3,11 +3,10 @@
     <v-card>
       <v-row>
         <v-col align="center">
-          <v-text-field
-            class="col-10 mt-8"
+          <TweetTextField
             v-model="content"
-            placeholder="What's happening?"
-            required
+            label="What's happening?"
+            rules="max:300|required"
           />
         </v-col>
       </v-row>
@@ -27,11 +26,16 @@
 
 <script>
 import axios from '@/plugins/axios'
+import TweetTextField from './TweetTextField.vue'
 export default {
+  components: {
+    TweetTextField
+  }, 
   data() {
     return {
       dialog: false,
       content: '',
+      error: ''
     }
   },
   computed: {
@@ -68,5 +72,8 @@ export default {
 }
 .tweet-icon {
   font-size: 25px;
+}
+.error {
+  color: rgb(255, 0, 0);
 }
 </style>
