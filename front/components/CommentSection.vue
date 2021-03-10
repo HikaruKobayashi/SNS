@@ -9,7 +9,7 @@
         <p>{{comments.length}}</p>
       </li>
     </ul>
-    <div v-show="isShow">
+    <div v-show="isShow" class="comment_form">
       <!-- <CommentForm :tweetId="tweetId"/> -->
       <v-form>
         <v-row>
@@ -123,6 +123,9 @@ export default {
 }
 .comment_container > ul {
   padding-bottom: 15px;
+}
+.comment_form {
+  padding: 15px;
 }
 .comment_icon {
   cursor: pointer;
