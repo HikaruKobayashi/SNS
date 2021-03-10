@@ -10,7 +10,27 @@
       </li>
     </ul>
     <div v-show="isShow">
-      <CommentForm :tweetId="tweetId"/>
+      <!-- <CommentForm :tweetId="tweetId"/> -->
+      <v-form>
+        <v-row>
+          <v-col align="center">
+            <v-text-field
+              v-model="text"
+              placeholder="comment"
+            />
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col align="right">
+            <v-btn
+              class="mr-3"
+              @click="createComment"
+            >
+            Comment
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-form>
       <div class="comment_container" v-for="comment in comments" :key="comment.id" :comment="comment">
         <ul>
           <li>
@@ -39,11 +59,11 @@
 <script>
 import axios from '@/plugins/axios'
 import TweetLike from '~/components/TweetLike.vue'
-import CommentForm from '~/components/CommentForm.vue'
+// import CommentForm from '~/components/CommentForm.vue'
 
 export default {
   component: {
-    CommentForm,
+    // CommentForm,
     TweetLike
   },
   props: {
@@ -52,7 +72,9 @@ export default {
   data() {
     return {
       comments: {},
-      isShow: false
+      isShow: false,
+      users: {},
+      text: '',
     }
   },
   computed: {
@@ -70,6 +92,19 @@ export default {
   methods: {
     active: function () {
       this.isShow = !this.isShow
+    },
+    createComment () {
+      axios
+        .post('/v1/comments', {
+          current_user_id: this.currentUser.user.id,
+          text: this.text,
+          tweet_id: this.tweetId
+        })
+        .then((res) => {
+          this.text = res.data
+          this.text = ''
+          location.reload();
+        })
     }
   }
 }
