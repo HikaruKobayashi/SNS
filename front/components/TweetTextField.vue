@@ -11,6 +11,7 @@
       :success="valid"
       v-bind="$attrs"
       v-on="$listeners"
+      class="tweet_text_field"
     >
     </v-text-field>
   </ValidationProvider>
@@ -39,3 +40,9 @@ export default {
   },
 }
 </script>
+
+<style>
+.tweet_text_field {
+  padding: 25px;
+}
+</style>
