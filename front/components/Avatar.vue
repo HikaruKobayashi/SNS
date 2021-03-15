@@ -79,9 +79,7 @@ export default {
           },
           method: 'PATCH'
         }).then(res => {
-          this.image = res.data.avatar_url
-          this.$store.commit('setUserAvatarUrl', res.data.avatar_url)
-          resolve(res)
+          this.image = this.image
         }).catch(e => {
           console.log(e)
         })
