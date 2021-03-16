@@ -63,6 +63,7 @@ export default {
         })
         .then((res) => {
           this.blog = {}
+          this.$emit('dialogFalse')
         })
     }
   }

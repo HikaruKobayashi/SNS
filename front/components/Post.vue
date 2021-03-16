@@ -8,8 +8,14 @@
         <div class="switch_btn" v-on:click="changeShow">
           <fa class="switch_icon" :icon="['fas', 'exchange-alt']" />
         </div>
-        <Tweet v-if="show" />
-        <Blog  v-if="!show" />
+        <Tweet
+          v-if="show"
+          @dialogFalse="dialogFalse"
+        />
+        <Blog
+          v-if="!show"
+          @dialogFalse="dialogFalse"
+        />
       </div>
     </v-dialog>
   </div>
@@ -32,6 +38,9 @@ export default {
   methods: {
     changeShow: function(){
       this.show = !this.show;
+    },
+    dialogFalse() {
+      this.dialog = false
     }
   }
 }
